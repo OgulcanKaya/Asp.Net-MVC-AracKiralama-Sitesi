@@ -1,0 +1,49 @@
+﻿@using AracKiralama.Models.Sınıflar
+@model List<Galeri>
+
+@{
+    ViewBag.Title = "GaleriResim";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Galeriye Resim Ekleme Sayfasına Hoşgeldiniz!</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Arabalar/Index">Arabalar</a></li>
+                    <li class="breadcrumb-item active">Galeri Resim Ekleme</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+@Html.Action("GaleriResimEkle","Arabalar")
+
+<div class="col-12">
+    <div class="card card-primary">
+        <div class="card-header">
+            <div class="card-title">
+                Resim Galerisi
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                @foreach (var resim in Model)
+                {
+                    <div class="col-sm-2">
+                        <a href="@resim.Image" data-toggle="lightbox" data-title="@resim.id -> @resim.title " data-gallery="gallery">
+                            <img src="@resim.Image" class="img-fluid mb-2" alt="white sample">
+                        </a>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+</div>
+

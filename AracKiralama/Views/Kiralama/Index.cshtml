@@ -1,0 +1,122 @@
+﻿@using AracKiralama.Models.Sınıflar
+@model List<KiralamaHareket>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Kiralama Sayfasına Hoşgeldiniz!</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Kullanıcılar/Index">Home</a></li>
+                    <li class="breadcrumb-item active">Kiralamalar Sayfası</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="content">
+
+    <div class="card-body">
+        <div class="card">
+            
+            <div class="card-body">
+                <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4" style="width:auto">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6"></div>
+                        <div class="col-sm-12 col-md-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting_desc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending" aria-sort="descending">Id</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Araba</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Araba Görsel</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Kullanıcı</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Alış Tarih</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Teslim Tarih</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Gün Sayısı</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Fiyat</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Toplam</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Güncelle</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Detay</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var kira in Model)
+                                    {
+                                    <tr role="row" class="odd">
+                                        <td>@kira.KiralamaId</td>
+                                        <td>
+                                            <a href="/Arabalar/ArabaDetayı/@kira.Arabaid">
+                                                @kira.Arabalar.Title
+                                            </a>
+                                        </td>
+                                        
+                                        <td><img src="@kira.Arabalar.Image" style="width:80px; height:50px;" /></td>
+                                        <td>
+                                            <a href="/Kullanıcılar/KullanıcıDetay/@kira.Kullanıcıid">@kira.Kullanıcı.Ad @kira.Kullanıcı.Soyad </a>
+
+                                        </td>
+                                        <td>@kira.Tarih.ToString("dd.MM.yyy")</td>
+                                        <td>@kira.TeslimTarih.ToString("dd.MM.yyy")</td>
+                                        <td>@kira.GünSayısı</td>
+                                        <td>@kira.Fiyat</td>
+                                        <td>@kira.ToplamTutar</td>
+                                        <td><a href="/Kiralama/KiralamaGetir/@kira.KiralamaId" class="btn btn-warning">Güncelle </a></td>
+                                        <td><a href="/Kiralama/KiralamaDetay/@kira.KiralamaId" class="btn btn-info">Detay </a></td>
+
+                                    </tr>
+
+                                    }
+
+
+                                </tbody>
+
+                            </table>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="card-body pad table-responsive" style="width:250px;">
+                <a href="/Kiralama/YeniKiralama" class="btn btn-block btn-success">Yeni Kiralama Ekle </a>
+                <a href="/Kiralama/KiralamalarListe" class="btn btn-block btn-success" style="background-color:cornflowerblue">Kiralamaları Dönüştür </a>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+
+$('#example2').dataTable({});
+
+</script>
+
+

@@ -1,0 +1,36 @@
+﻿@model AracKiralama.Models.Sınıflar.HomePageDatas
+
+<!-- ***** Preloader Start ***** -->
+<div id="preloader">
+    <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<!-- ***** Preloader End ***** -->
+<!-- Header -->
+@foreach (var set in Model.Settings)
+{<div class="sub-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-xs-12">
+                <ul class="left-info">
+                    <li><a href="#"><i class="fa fa-envelope"></i>@set.Mail</a></li>
+                    <li><a href="#"><i class="fa fa-phone"></i>@set.Telefon</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="right-icons">
+                    <li><a href="@set.Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="@set.Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="@set.Instagram" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="@set.Instagram" target="_blank"><i class="fa fa-question-circle"></i></a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+}

@@ -1,0 +1,72 @@
+﻿@model AracKiralama.Models.Sınıflar.Faturalar
+
+@{
+    ViewBag.Title = "FaturaGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Fatura Güncelleme</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Fatura/Index">Faturalar</a></li>
+                    <li class="breadcrumb-item active">Fatura Güncelleme Sayfası</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Fatura Güncelle</h3>
+    </div>
+    @using (Html.BeginForm("FaturaGüncelle", "Fatura", FormMethod.Post))
+    {
+
+        <div class="card-body">
+
+            @Html.LabelFor(x => x.FaturaSeriNo)
+            @Html.TextBoxFor(x => x.FaturaSeriNo, new { @class = "form-control" })
+            <br>
+
+            @Html.LabelFor(x => x.FaturaSıraNo)
+            @Html.TextBoxFor(x => x.FaturaSıraNo, new { @class = "form-control" })
+
+            <br>
+
+            @Html.LabelFor(x => x.FaturaTarih)
+            @Html.TextBoxFor(x => x.FaturaTarih, new { @class = "form-control"  })
+
+            <br>
+
+            @Html.LabelFor(x => x.FaturaSaat)
+            @Html.TextBoxFor(x => x.FaturaSaat, new { @class = "form-control", Type="time" })
+
+            <br>
+
+            @Html.LabelFor(x => x.TeslimAlan)
+            @Html.TextBoxFor(x => x.TeslimAlan, new { @class = "form-control" })
+
+            <br>
+            @Html.LabelFor(x => x.TeslimEden)
+            @Html.TextBoxFor(x => x.TeslimEden, new { @class = "form-control" })
+
+
+            <br>
+
+            @Html.LabelFor(x => x.Status)
+            @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+            <br>
+            @Html.HiddenFor(x=> x.FaturaId)
+
+            <button class="btn btn-warning">Güncelle</button>
+        </div>
+
+    }
+</div>
+

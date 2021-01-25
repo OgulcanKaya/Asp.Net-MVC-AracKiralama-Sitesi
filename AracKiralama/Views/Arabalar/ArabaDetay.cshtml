@@ -1,0 +1,159 @@
+﻿
+@using AracKiralama.Models.Sınıflar
+@model List<Arabalar>
+
+
+@{
+    ViewBag.Title = "ArabaDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>@ViewBag.cars Detay Sayfasına Hoşgeldiniz!</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/Arabalar/Index">Araba Detay</a></li>
+                        <li class="breadcrumb-item active">Araba Detay Sayfası</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<section class="content">
+
+    <div class="card-body">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">@ViewBag.cars'nın Detayı</h3>
+            </div>
+            <div class="card-body">
+                <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4" style="width:auto">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6"></div>
+                        <div class="col-sm-12 col-md-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
+
+                                <tbody>
+                                    @foreach (var car in Model)
+                                    {
+                                        <tr>
+                                            <th class="text-left" style="color: #1f1f20"> Image </th>
+                                            <div class="center"><img src="" height="250px"></div>
+                                        </tr>
+
+                                        <tr role="row" class="odd">
+                                            <th>Kategori</th>
+                                            <td>@car.Kategori.Title</td>
+
+                                        </tr>
+
+                                        <tr role="row" class="odd">
+                                            <th>ArabaId </th>
+                                            <td>@car.ArabaId</td>
+
+                                        </tr>
+
+                                        <tr role="row" class="odd">
+                                            <th>Title </th>
+                                            <td>@car.Title</td>
+
+                                        </tr>
+
+                                        <tr role="row" class="odd">
+                                            <th>Description</th>
+                                            <td>@car.Description </td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Keywords</th>
+                                            <td>@car.Keywords</td>
+
+                                        </tr>
+
+                                        <tr role="row" class="odd">
+                                            <th>Marka </th>
+                                            <td>@car.Marka</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Model</th>
+                                            <td>@car.Model</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Detail</th>
+                                            <td>@Html.Raw(car.Detail)</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Motorgücü</th>
+                                            <td>@car.Motorgücü</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Yıl</th>
+                                            <td>@car.Yıl</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Vites</th>
+                                            <td>@car.Vites</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Km</th>
+                                            <td>@car.Km</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Fiyat</th>
+                                            <td>@car.Fiyat</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Status</th>
+                                            <td>@car.Status</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Created_At</th>
+                                            <td>@car.Created_At</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Updated_at</th>
+                                            <td>@car.Updated_at</td>
+
+                                        </tr>
+
+                                    }
+
+
+                                </tbody>
+
+                            </table>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+

@@ -1,0 +1,103 @@
+﻿@model AracKiralama.Models.Sınıflar.HomePageDatas
+
+
+    @foreach (var set in Model.Settings)
+    {
+        ViewBag.Title = set.Title;
+        ViewBag.Description = set.Description;
+        ViewBag.keywords = set.Keywords;
+        Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    }
+    
+
+
+<div class="page-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Hakkımızda</h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="more-info about-info" style="margin-top:20px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="more-info-content">
+                    <div class="row">
+                        @foreach (var item in Model.Settings)
+                        {
+
+                            <br />
+                            <br />
+                            <div class="content" style="margin-left:150px">
+                                <span>@item.Title</span>
+                                <h2>@item.Title <em>Hakkında</em></h2>
+                                <br />
+                                <br />
+
+                                <div class="center-block">
+
+                                    @Html.Raw(@item.Aboutus)
+
+                                </div>
+
+
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="fun-facts">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="left-content">
+                    <span>Lorem ipsum dolor sit amet</span>
+                    <h2>Modi esse sapiente tenetur <em>impedit laudantium laborum</em></h2>
+                    <p>
+                        Pellentesque ultrices at turpis in vestibulum. Aenean pretium elit nec congue elementum. Nulla luctus laoreet porta. Maecenas at nisi tempus, porta metus vitae, faucibus augue.
+                        <br><br>Fusce et venenatis ex. Quisque varius, velit quis dictum sagittis, odio velit molestie nunc, ut posuere ante tortor ut neque.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 align-self-center">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="count-area-content">
+                            <div class="count-digit">100000</div>
+                            <div class="count-title">Miles driven</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="count-area-content">
+                            <div class="count-digit">1280</div>
+                            <div class="count-title">Happy clients</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="count-area-content">
+                            <div class="count-digit">12</div>
+                            <div class="count-title">Cities</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="count-area-content">
+                            <div class="count-digit">26</div>
+                            <div class="count-title">Cars</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

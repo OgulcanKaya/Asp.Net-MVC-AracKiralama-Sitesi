@@ -1,0 +1,30 @@
+﻿@model AracKiralama.Models.Sınıflar.Galeri
+
+<div class="card card-primary">
+    
+
+    @using (Html.BeginForm("GaleriResimEkle", "Arabalar", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="card-body">
+           
+
+                @Html.LabelFor(x => x.title)
+                @Html.TextBoxFor(x=> x.title, new { @class = "form-control" })
+
+                <br>
+                @Html.LabelFor(x=>x.Image)
+                <input type="file" name="Image" class="form-control-file" />
+             
+            <br />
+                @Html.HiddenFor(x => x.Arabaid)
+
+
+            <button class="btn btn-warning">Ekle</button>
+            <br>
+        </div>
+        <!-- /.card-body -->
+
+
+    }
+    
+</div>

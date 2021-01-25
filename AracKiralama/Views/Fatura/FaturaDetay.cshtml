@@ -1,0 +1,86 @@
+﻿@using AracKiralama.Models.Sınıflar
+@model List<FaturaKalem>
+
+@{
+    ViewBag.Title = "FaturaDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Fatura Detay Sayfasına Hoşgeldiniz!</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="~/Fatura/Index">Faturalar</a></li>
+                    <li class="breadcrumb-item active">Fatura Detay Sayfası</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="content">
+
+    <div class="card-body">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Fatura Detayı</h3>
+            </div>
+            <div class="card-body">
+                <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4" style="width:auto">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6"></div>
+                        <div class="col-sm-12 col-md-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting_desc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending" aria-sort="descending">Id</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Detail</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Gün sayısı</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Tutar</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var ftr in Model)
+                                    {
+                                        <tr role="row" class="odd">
+                                            <td>@ftr.FaturaKalemıd</td>
+                                            <td>@ftr.Detail</td>
+                                            <td>@ftr.Gün</td>
+                                            <td>@ftr.Tutar</td>
+
+
+                                        </tr>
+
+                                    }
+
+
+                                </tbody>
+
+                            </table>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            
+            <div class="card-body pad table-responsive" style="width:250px;">
+                <a href="/Fatura/YeniKalem" class="btn btn-default" style="background-color:cornflowerblue">Fatura Kalem Ekle</a>
+            </div>
+
+        </div>
+    </div>
+</section>

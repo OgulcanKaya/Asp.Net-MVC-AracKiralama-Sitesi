@@ -1,0 +1,104 @@
+﻿@model AracKiralama.Models.Sınıflar.Arabalar
+
+@{
+    ViewBag.Title = "ArabaEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Araba Ekleme Sayfasına Hoşgeldiniz!</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Arabalar/Index">Arabalar</a></li>
+                    <li class="breadcrumb-item active">Araba Ekleme Sayfası</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Araba Ekle</h3>
+    </div>
+    @using (Html.BeginForm("ArabaEkle", "Arabalar", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <form role="form" method="post">
+            <div class="card-body">
+                @Html.LabelFor(x => x.Title)
+                @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                <br>
+
+                @Html.LabelFor(x => x.Kategori.KategoriId)
+                @*@Html.TextBoxFor(x => x.Kategoriid, new { @class = "form-control" })*@
+                @Html.DropDownListFor(x => x.Kategoriid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+                <br>
+
+                @Html.LabelFor(x => x.Keywords)
+                @Html.TextBoxFor(x => x.Keywords, new { @class = "form-control" })
+                <br>
+
+                @Html.LabelFor(x => x.Description)
+                @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+
+                <br>
+
+                @Html.LabelFor(x => x.Marka)
+                @Html.TextBoxFor(x => x.Marka, new { @class = "form-control" })
+
+                <br>
+
+                @Html.LabelFor(x => x.Model)
+                @Html.TextBoxFor(x => x.Model, new { @class = "form-control" })
+
+                <br>
+
+                @Html.LabelFor(x => x.Image)
+                <input type="file" name="Image" />
+                @* @Html.TextBoxFor(x => x.Image, new { @class = "form-control" }) *@
+
+                <br>
+                @Html.LabelFor(x => x.Detail)
+                @Html.TextAreaFor(x => x.Detail, new { @class = "ckeditor" })
+
+                <br>
+                @Html.LabelFor(x => x.Motorgücü)
+                @Html.TextBoxFor(x => x.Motorgücü, new { @class = "form-control" })
+
+                <br>
+                @Html.LabelFor(x => x.Yıl)
+                @Html.TextBoxFor(x => x.Yıl, new { @class = "form-control" })
+
+                <br>
+                @Html.LabelFor(x => x.Vites)
+                @Html.TextBoxFor(x => x.Vites, new { @class = "form-control" })
+
+                <br>
+                @Html.LabelFor(x => x.Km)
+                @Html.TextBoxFor(x => x.Km, new { @class = "form-control" })
+
+                <br>
+                @Html.LabelFor(x => x.Fiyat)
+                @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+
+                <br>
+                @Html.LabelFor(x => x.Status)
+                @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+
+                <br>
+            </div>
+
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Ekle</button>
+            </div>
+        </form>
+    }
+</div>
+

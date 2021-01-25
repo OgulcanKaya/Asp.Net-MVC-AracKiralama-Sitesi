@@ -1,0 +1,113 @@
+﻿@using AracKiralama.Models.Sınıflar
+@model List<KiralamaHareket>
+
+
+@{
+    ViewBag.Title = "KiralamaDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Kiralama Detay Sayfasına Hoşgeldiniz!</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="~/Kiralama/Index">Kiralamalar</a></li>
+                    <li class="breadcrumb-item active">Kiralama Detay Sayfası</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="content">
+
+    <div class="card-body">
+        <div class="card">
+
+            <div class="card-body">
+                <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4" style="width:auto">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6"></div>
+                        <div class="col-sm-12 col-md-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
+
+                                <tbody>
+                                    @foreach (var kiralama in Model)
+                                    {
+
+
+                                        <tr role="row" class="odd">
+                                            <th>Kiralama ID : </th>
+                                            <td>@kiralama.KiralamaId</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Araba : </th>
+                                            <td>@kiralama.Arabalar.Title</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Araba Görsel </th>
+                                            <td>@kiralama.Arabalar.Image</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Kullanıcı : </th>
+                                            <td>@kiralama.Kullanıcı.Ad @kiralama.Kullanıcı.Soyad</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Kiralama Başlangıç Tarihi : </th>
+                                            <td>@kiralama.Tarih</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Kiralama Teslim Tarihi : </th>
+                                            <td>@kiralama.TeslimTarih</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Gün Sayısı : </th>
+                                            <td>@kiralama.GünSayısı</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Fiyat : </th>
+                                            <td>@kiralama.Fiyat</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>ToplamTutar : </th>
+                                            <td>@kiralama.ToplamTutar</td>
+
+                                        </tr>
+
+
+                                    }
+
+
+                                </tbody>
+
+                            </table>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+

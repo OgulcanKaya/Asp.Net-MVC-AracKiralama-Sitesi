@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>@ViewBag.title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="@ViewBag.Description">
+    <meta name="keywords" content="@ViewBag.keywords">
+    <meta name="author" content="@ViewBag.title">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/rent-a-car/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="~/Content/rent-a-car/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="~/Content/rent-a-car/assets/css/style.css">
+    <link rel="stylesheet" href="~/Content/rent-a-car/assets/css/owl.css">
+
+
+    
+
+    <!-- Ionicons -->
+
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <!-- Theme style -->
+
+    <link rel="stylesheet" href="~/Content/AdminPaneli/dist/css/adminlte.min.css">
+
+    <!-- Google Font: Source Sans Pro -->
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+
+</head>
+<body>
+
+    @Html.Partial("HomeHead")
+
+    @Html.Partial("HomeHeader")
+
+
+    @RenderBody()
+
+    @Html.Partial("HomeFooter")
+
+</body>
+</html>

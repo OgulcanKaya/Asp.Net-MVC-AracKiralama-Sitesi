@@ -1,0 +1,270 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<br />
+<section class="content">
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-3 col-6 ">
+                <!-- small box -->
+                <div class="small-box bg-info">
+
+                    <div class="inner" style="background-color:#2c2c54 ">
+                        <h3>@ViewBag.kira</h3>
+
+                        <p>Kiralama</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-shopping-bag"></i>
+                    </div>
+
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
+                    <div class="inner" style="background-color: #aaa69d">
+                        <h3>@ViewBag.car</h3>
+
+                        <p>Arabalar</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-car"></i>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-6">
+
+                <div class="small-box bg-warning">
+                    <div class="inner" style="background-color: #cd6133">
+                        <h3>@ViewBag.klc</h3>
+
+                        <p> Kullanıcılar</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-user-friends"></i>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-6">
+
+                <div class="small-box bg-danger">
+                    <div class="inner" style="        background-color: #2c2c54">
+                        <h3>@ViewBag.ktgr</h3>
+
+                        <p>Kategori</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-pie-graph"></i>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info" style="background-color:#778beb">
+                    <div class="inner">
+                        <h3>@ViewBag.aktifcar</h3>
+
+                        <p>Aktif Arabalar</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-car-side"></i>
+                    </div>
+
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3>@ViewBag.pasifcar</h3>
+
+                        <p>Pasif Arabalar</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-car-crash"></i>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-6">
+
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3>@ViewBag.cmnt</h3>
+
+                        <p>Yorum</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-comment"></i>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-6">
+
+                <div class="small-box bg-warning">
+                    <div class="inner" style="        background-color: #596275">
+                        <h3>65</h3>
+
+                        <p>Mesaj</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-comment-medical"></i>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info" style="background-color:#778beb">
+                    <div class="inner" style="background-color:#fbc531">
+                        <h3>@ViewBag.aktifkullanıcı</h3>
+
+                        <p>Aktif Kullanıcılar</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
+                    <div class="inner" style="background-color: #33d9b2">
+                        <h3>@ViewBag.pasifkullanıcı</h3>
+
+                        <p>Pasif Kullanıcılar</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-user-lock"></i>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-6">
+
+                <div class="small-box bg-warning">
+                    <div class="inner" style="background-color: #40407a">
+                        <h3>@ViewBag.kazanç</h3>
+
+                        <p>Toplam Kazanç</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-dollar-sign"></i>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+            <div class="col-lg-3 col-6">
+
+                <div class="small-box bg-danger">
+                    <div class="inner" style="background-color: #ff793f">
+                        <h3>@ViewBag.fatura</h3>
+
+                        <p>Kesilen Fatura</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-money-check"></i>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+
+            <div class="col-lg-3 col-6">
+
+                <div class="small-box bg-warning">
+                    <div class="inner" style="background-color: #7f8fa6">
+                        <h3>@ViewBag.ençokkiralama</h3>
+
+                        <p>En Çok Kiralanan</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-upload"></i>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                    <div class="inner"  style="background-color: #006266">
+                        <h3>@ViewBag.enazkiralama</h3>
+
+                        <p>En az Kiralanan</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-download"></i>
+                    </div>
+
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
+                    <div class="inner"  style="background-color: #e66767">
+                        <h3>@ViewBag.maxmarka</h3>
+
+                        <p>En Çok Marka</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-compass"></i>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-lg-3 col-6">
+
+                <div class="small-box bg-danger">
+                    <div class="inner" style="background-color:#596275">
+                        <h3>@ViewBag.bugünkikiralama</h3>
+
+                        <p>Bugünki Kiralamalar</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-money-check"></i>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

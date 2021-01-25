@@ -1,0 +1,62 @@
+﻿@model AracKiralama.Models.Sınıflar.HomePageDatas
+
+
+@foreach (var set in Model.Settings)
+{
+    ViewBag.Title = set.Title;
+    ViewBag.Description = set.Description;
+    ViewBag.keywords = set.Keywords;
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+
+<div class="page-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Referanslarımız</h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="more-info about-info" style="margin-top:40px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="more-info-content">
+                    <div class="row">
+                        @foreach (var item in Model.Settings)
+                        {
+
+                            <div class="col-md-10">
+
+                                <div class="center">
+
+                                    <span>@item.Title</span>
+                                    <h2>@item.Title <em>Referanslarımız</em></h2>
+                                    <br />
+                                    <br />
+                                    <div class="center-block" style="margin-left:350px">
+
+                                        @Html.Raw(@item.References)
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

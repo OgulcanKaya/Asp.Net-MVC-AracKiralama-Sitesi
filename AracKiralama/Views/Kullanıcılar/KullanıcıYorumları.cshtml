@@ -1,0 +1,98 @@
+﻿@using AracKiralama.Models.Sınıflar
+@model List<Comments>
+@{
+    ViewBag.Title = "KullanıcıYorumları";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@ViewBag.user Yorumlar Sayfasına Hoşgeldiniz!</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Kullanıcılar/Index">Kullanıcılar Sayfası</a></li>
+                    <li class="breadcrumb-item active">@ViewBag.user Yorumlar Sayfası</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="content">
+
+    <div class="card-body">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">@ViewBag.user Yorumları</h3>
+            </div>
+            <div class="card-body">
+                <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4" style="width:auto">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6"></div>
+                        <div class="col-sm-12 col-md-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting_desc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending" aria-sort="descending">Id</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Araba</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Image</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Comment</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Rate</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Status</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Kullanıcı</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Created_at</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Updated_at</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Yazdır</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var cmnt in Model)
+                                    {
+                                        <tr role="row" class="odd">
+                                            <td>@cmnt.ıd</td>
+                                            <td>
+                                                <a href="/Arabalar/ArabaDetay/@cmnt.Arabaid">
+                                                    @cmnt.Arabalars.Title
+                                                </a>
+                                            </td>
+                                            <td>@cmnt.Arabalars.Image</td>
+                                            <td>
+                                                <a href="#">@cmnt.Comment </a>
+                                            </td>
+                                            <td>@cmnt.Rate</td>
+                                            <td>@cmnt.Status</td>
+                                            <td>
+                                                <a href="/Kullanıcılar/KullanıcıDetay/@cmnt.Kullanıcıs.KullanıcıId">@cmnt.Kullanıcıs.Ad  @cmnt.Kullanıcıs.Soyad </a>
+                                            </td>
+                                            <td>@cmnt.Created_at</td>
+                                            <td>@cmnt.Updated_at</td>
+                                            <td><a href="" class="btn btn-info">Yazdır </a></td>
+                                        </tr>
+
+                                    }
+
+
+                                </tbody>
+
+                            </table>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+

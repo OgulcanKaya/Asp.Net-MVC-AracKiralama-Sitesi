@@ -1,0 +1,85 @@
+﻿@model AracKiralama.Models.Sınıflar.HomePageDatas
+
+@foreach (var set in Model.Settings)
+{
+    ViewBag.Title = set.Title;
+    ViewBag.Description = set.Description;
+    ViewBag.keywords = set.Keywords;
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+
+<div class="page-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                @foreach (var set in Model.Settings)
+                {
+                    <h1>@set.Title</h1>
+                }
+                <span> Tüm Arabalarımız</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="services">
+    <div class="container">
+
+        <div class="row">
+            @foreach (var car in Model.Arabalars)
+            {
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <img src="@car.Image" alt="">
+                        <div class="down-content">
+                            <h4>@car.Marka @car.Model</h4>
+                            <div style="margin-bottom:10px;">
+                                <span>from <sup>₺</sup>@car.Fiyat</span>
+                            </div>
+                            <p>
+                                <i class="fa fa-user" title="passegengers"></i> 4 &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-briefcase" title="luggages"></i> @car.Vites V &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-sign-out" title="doors"></i> @car.Km km &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-cog" title="transmission"></i>  @car.Motorgücü Hp
+                            </p>
+                            <a href="/Home/AraçDetay/@car.ArabaId" class="filled-button">Book Now</a>
+                        </div>
+                    </div>
+
+                    <br>
+                </div>
+            }
+        </div>
+
+
+
+        <br>
+        <br>
+
+        <nav>
+            <ul class="pagination pagination-lg justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">«</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">»</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>

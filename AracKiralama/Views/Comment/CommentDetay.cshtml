@@ -1,0 +1,111 @@
+﻿@using AracKiralama.Models.Sınıflar
+@model List<Comments>
+
+@{
+   
+        ViewBag.Title = "CommentDetay";
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Yorum Detay Sayfasına Hoşgeldiniz!</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="~/Comment/Index">Yorumlar</a></li>
+                        <li class="breadcrumb-item active">Yorumlar Detay Sayfası</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="content">
+
+        <div class="card-body">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Yorum Detayı</h3>
+                </div>
+                <div class="card-body">
+                    <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4" style="width:auto">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6"></div>
+                            <div class="col-sm-12 col-md-6"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
+
+                                    <tbody>
+                                        @foreach (var cmnt in Model)
+                                        {
+
+
+                                            <tr role="row" class="odd">
+                                                <th>Comment ID : </th>
+                                                <td>@cmnt.ıd</td>
+
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <th>Comment : </th>
+                                                <td>@cmnt.Comment</td>
+
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <th>Rate : </th>
+                                                <td>@cmnt.Rate</td>
+
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <th>Status: </th>
+                                                <td>@cmnt.Status</td>
+
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <th>Yorum yapan Kullanıcı</th>
+                                                <td><a href="/Kullanıcılar/KullanıcıDetay/@cmnt.Kullanıcıid" class="btn btn-group" style="background-color:greenyellow  ">@cmnt.Kullanıcıs.Ad @cmnt.Kullanıcıs.Soyad </a></td>
+
+                                               
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <th>Yorum Yapılan Araç</th>
+                                                <td><a href="/Arabalar/ArabaDetayı/@cmnt.Arabaid" class="btn btn-group" style="background-color:cornflowerblue">@cmnt.Arabalars.Title  </a></td>
+
+
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <th>Created_at</th>
+                                                <td>@cmnt.Created_at</td>
+
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <th>Updated_at</th>
+                                                <td>@cmnt.Updated_at</td>
+
+                                            </tr>
+
+
+                                        }
+
+
+                                    </tbody>
+
+                                </table>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+

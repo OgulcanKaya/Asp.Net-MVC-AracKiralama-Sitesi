@@ -1,0 +1,63 @@
+﻿@model AracKiralama.Models.Sınıflar.KiralamaHareket
+
+@{
+    ViewBag.Title = "KiralamaGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Kiralama Güncelleme Sayfasına Hoşgeldiniz!</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Kiralama/Index">Arabalar</a></li>
+                    <li class="breadcrumb-item active">Kiralama Güncelleme Sayfası</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Kiralama Güncelle</h3>
+    </div>
+
+    @using (Html.BeginForm("KiralamaGüncelle", "Kiralama", FormMethod.Post))
+    {
+        <div class="card-body">
+
+            @Html.LabelFor(x => x.Arabalar.ArabaId)
+            @Html.DropDownListFor(x => x.Arabaid, (List<SelectListItem>)ViewBag.arabalar, new { @class = "form-control" })
+
+
+            <br>
+
+            @Html.LabelFor(x => x.Kullanıcı.KullanıcıId)
+            @Html.DropDownListFor(x => x.Kullanıcıid, (List<SelectListItem>)ViewBag.kullanıcılar, new { @class = "form-control" })
+
+            <br>
+
+            @Html.LabelFor(x => x.Tarih)
+            @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", Type = "datetime-Local" })
+
+            <br>
+
+            @Html.LabelFor(x => x.TeslimTarih)
+            @Html.TextBoxFor(x => x.TeslimTarih, new { @class = "form-control", Type ="datetime-Local" })
+            <br>
+
+            @Html.HiddenFor(x => x.KiralamaId)
+
+            <button class="btn btn-warning">Güncelle</button>
+            <br>
+        </div>
+        <!-- /.card-body -->
+
+
+    }
+</div>
+

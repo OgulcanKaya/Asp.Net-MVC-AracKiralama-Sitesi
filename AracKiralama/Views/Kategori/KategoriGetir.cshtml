@@ -1,0 +1,68 @@
+﻿@model AracKiralama.Models.Sınıflar.Kategori
+@{
+    ViewBag.Title = "KategoriGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Kategori Güncelleme</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Kategori/Kategori">Kategoriler</a></li>
+                    <li class="breadcrumb-item active">Kategori Güncelleme Sayfası</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+<br />
+
+
+<h2>Kategori Güncelleme</h2>
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Kategori Ekle</h3>
+    </div>
+    @using (Html.BeginForm("KategoriGüncelle", "Kategori", FormMethod.Post))
+    {
+
+        <div class="card-body">
+            @Html.LabelFor(x => x.ParentId)
+            @Html.TextBoxFor(x => x.ParentId, new { @class = "form-control" })
+            <br>
+
+            @Html.LabelFor(x => x.Title)
+            @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+            <br>
+
+            @Html.LabelFor(x => x.Description)
+            @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+
+            <br>
+
+            @Html.LabelFor(x => x.Keywords)
+            @Html.TextBoxFor(x => x.Keywords, new { @class = "form-control" })
+
+            <br>
+
+            @Html.LabelFor(x => x.Status)
+            @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+
+            <br>
+
+            @Html.LabelFor(x => x.Created_At)
+            @Html.TextBoxFor(x => x.Created_At, new { @class = "form-control" })
+
+           
+            @Html.HiddenFor(x => x.KategoriId)
+            <br>
+
+            <button class="btn btn-warning">Güncelle</button>
+        </div>
+
+    }
+</div>

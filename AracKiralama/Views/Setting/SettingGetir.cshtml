@@ -1,0 +1,116 @@
+﻿@model AracKiralama.Models.Sınıflar.Setting
+
+@{
+    ViewBag.Title = "SettingGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Setting Güncelleme Sayfasına Hoşgeldiniz!</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Setting/Index">Setting</a></li>
+                    <li class="breadcrumb-item active">Setting Güncelle Sayfası</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Setting Güncelle</h3>
+    </div>
+
+    @using (Html.BeginForm("SettingGüncelle", "Setting", FormMethod.Post))
+    {
+        <div class="card-body">
+
+            @Html.LabelFor(x => x.Title)
+            @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+            <br>
+
+            @Html.LabelFor(x => x.Keywords)
+            @Html.TextBoxFor(x => x.Keywords, new { @class = "form-control" })
+            <br>
+
+            @Html.LabelFor(x => x.Description)
+            @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+            <br>
+
+            @Html.LabelFor(x => x.Description)
+            @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+
+            <br>
+
+            @Html.LabelFor(x => x.Mail)
+            @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+
+            <br>
+
+            @Html.LabelFor(x => x.Address)
+            @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+
+            <br>
+            @Html.LabelFor(x => x.Telefon)
+            @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })
+            <br>
+            @Html.LabelFor(x => x.Harita)
+            @Html.TextBoxFor(x => x.Harita, new { @class = "form-control" })
+            <br>
+            @Html.LabelFor(x => x.Smtpserver)
+            @Html.TextBoxFor(x => x.Smtpserver, new { @class = "form-control" })
+
+            <br>
+            @Html.LabelFor(x => x.Smtpemail)
+            @Html.TextBoxFor(x => x.Smtpemail, new { @class = "form-control" })
+
+            <br>
+            @Html.LabelFor(x => x.Smtppassword)
+            @Html.TextBoxFor(x => x.Smtppassword, new { @class = "form-control" })
+
+            <br>
+            @Html.LabelFor(x => x.Facebook)
+            @Html.TextBoxFor(x => x.Facebook, new { @class = "form-control" })
+
+            <br>
+            @Html.LabelFor(x => x.Instagram)
+            @Html.TextBoxFor(x => x.Instagram, new { @class = "form-control" })
+
+            <br>
+            @Html.LabelFor(x => x.Twitter)
+            @Html.TextBoxFor(x => x.Twitter, new { @class = "form-control" })
+
+            <br>
+            @Html.LabelFor(x => x.Aboutus)
+            <br>
+            @Html.TextAreaFor(x => x.Aboutus, new { @class = "ckeditor" })
+
+            <br>
+            @Html.LabelFor(x => x.Contactus)
+            <br>
+            @Html.TextAreaFor(x => x.Contactus, new { @class = "ckeditor" })
+
+            <br>
+            @Html.LabelFor(x => x.References)
+            <br>
+            @Html.TextAreaFor(x => x.References, new { @class = "ckeditor" })
+
+
+
+            @Html.HiddenFor(x => x.SettingId)
+
+
+            <br>
+            <button class="btn btn-warning">Güncelle</button>
+        </div>
+        <!-- /.card-body -->
+
+
+    }
+</div>
+

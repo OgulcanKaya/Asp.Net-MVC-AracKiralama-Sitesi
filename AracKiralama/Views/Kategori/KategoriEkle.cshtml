@@ -1,0 +1,62 @@
+﻿@model AracKiralama.Models.Sınıflar.Kategori
+@{
+    ViewBag.Title = "KategoriEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Kategori Ekleme Sayfasına Hoşgeldiniz!</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="Kategori/Kategori">Kategoriler</a></li>
+                    <li class="breadcrumb-item active">Kategori Ekleme Sayfası</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+<br />
+
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Kategori Ekle</h3>
+    </div>
+
+    <form role="form" method="post">
+        <div class="card-body">
+            @Html.LabelFor(x => x.ParentId)
+            @Html.TextBoxFor(x => x.ParentId, new { @class = "form-control" })
+            <br>
+
+            @Html.LabelFor(x => x.Title)
+            @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+            <br>
+
+            @Html.LabelFor(x => x.Description)
+            @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+
+            <br>
+
+            @Html.LabelFor(x => x.Keywords)
+            @Html.TextBoxFor(x => x.Keywords, new { @class = "form-control" })
+
+            <br>
+
+            @Html.LabelFor(x => x.Status)
+            @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+
+            <br>
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Ekle</button>
+        </div>
+    </form>
+</div>
+

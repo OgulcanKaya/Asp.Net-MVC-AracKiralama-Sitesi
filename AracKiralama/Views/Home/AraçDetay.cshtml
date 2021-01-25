@@ -1,0 +1,159 @@
+﻿@model AracKiralama.Models.Sınıflar.HomePageDatas
+
+@foreach (var set in Model.Arabalars)
+{
+    ViewBag.Title = set.Title;
+    ViewBag.Description = set.Description;
+    ViewBag.keywords = set.Keywords;
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/AdminPaneli/plugins/fontawesome-free/css/all.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- overlayScrollbars -->
+<link rel="stylesheet" href="~/Content/AdminPaneli/dist/css/adminlte.min.css">
+<!-- Google Font: Source Sans Pro -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+@foreach (var araba in Model.Arabalars)
+{
+    <div class="page-heading header-text" style="background-image:url('@araba.Image'); background-size:cover;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <h1>@araba.Marka Detay sayfası</h1>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+<section class="content" style="margin-top:70px">
+
+    <!-- Default box -->
+    <div class="card card-solid">
+        <div class="card-body">
+
+            <div class="row">
+
+
+                <div class="col-12 col-sm-6">
+                    <h3 class="d-inline-block d-sm-none"> </h3>
+                    @foreach (var car in Model.Arabalars)
+                    {
+                        <div class="col-12">
+                            <img src="@car.Image" class="product-image" alt="Product Image" />
+
+                        </div>
+                    }
+
+                    <div class="col-12 product-image-thumbs">
+                        @foreach (var car in Model.Arabalars)
+                        {
+                            <div class="product-image-thumb"><img src="@car.Image" /></div>
+                        }
+                        @foreach (var galeri in Model.Galeris)
+                        {
+                            <div class="product-image-thumb"><img src="@galeri.Image" /></div>
+
+
+                        }
+
+                    </div>
+
+                </div>
+
+                @foreach (var car in Model.Arabalars)
+                {
+
+            <div class="col-12 col-sm-6">
+
+
+                <h3 class="my-3">@car.Marka @car.Model</h3>
+
+                <p>Kategori : @car.Kategori.Title</p>
+                <p>Motor Gücü : @car.Motorgücü</p>
+                <p>Yıl: @car.Yıl</p>
+                <p>Vites: @car.Vites</p>
+                <p>Km: @car.Km</p>
+                <p>Status: @car.Status</p>
+                <p>Eklenme Tarihi : @car.Created_At.ToString("dd.MM.yyy")  </p>
+                <p>Güncellenme Tarihi : @car.Updated_at.ToString("dd.MM.yyy")  </p>
+                <hr>
+
+                <div class="bg-blue py-2 px-3 mt-4">
+                    <h2 class="mb-0">
+                    </h2>
+                    <h4 class="mt-0">
+                        <small>Fiyat : @car.Fiyat ₺ </small>
+                    </h4>
+                </div>
+                <br />
+
+                @Html.Action("KiralamaYap", "Home")
+            </div>
+                }
+               
+
+
+            </div>
+          
+
+
+            <div class="row mt-4">
+                <nav class="w-100">
+                    <div class="nav nav-tabs" id="product-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="false">Detail</a>
+                        <a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab" href="#product-comments" role="tab" aria-controls="product-comments" aria-selected="true">Comments</a>
+                    </div>
+                </nav>
+                <div class="tab-content p-3" id="nav-tabContent">
+                    @foreach (var car in Model.Arabalars)
+                    {
+                        <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab"> @Html.Raw(@car.Detail)</div>
+
+                    }
+
+
+                    <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab">
+                        @foreach (var cmnt in Model.Comments)
+                        {
+                            <div class="post">
+                                <div class="user-block">
+                                    <img class="img-circle img-bordered-sm" src="@cmnt.Kullanıcıs.Image" alt="user image">
+                                    <span class="username">
+                                        <a href="/Kullanıcılar/KullanıcıDetay/@cmnt.Kullanıcıid">@cmnt.Kullanıcıs.Ad @cmnt.Kullanıcıs.Soyad</a>
+
+                                    </span>
+                                    <span class="description"> Yorumun Yapıldığı Tarih: @cmnt.Created_at.ToString("dd.MM.yyy")</span>
+                                </div>
+                                <!-- /.user-block -->
+                                <p>
+                                    @cmnt.Comment
+                                </p>
+
+                                <p>
+
+                                    <i class="far fa-thumbs-up mr-1"> : @cmnt.Rate</i>
+
+                                </p>
+
+                            </div>
+
+                        }
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+

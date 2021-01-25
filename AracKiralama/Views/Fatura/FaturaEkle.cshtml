@@ -1,0 +1,68 @@
+﻿@model AracKiralama.Models.Sınıflar.Faturalar
+
+@{
+    ViewBag.Title = "FaturaEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Fatura Ekleme Sayfasına Hoşgeldiniz!</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="Fatura/Index">Faturalar</a></li>
+                    <li class="breadcrumb-item active">Fatura Ekleme Sayfası</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Fatura Ekle</h3>
+    </div>
+
+    <form role="form" method="post">
+        <div class="card-body">
+          
+            @Html.LabelFor(x => x.FaturaSeriNo)
+            @Html.TextBoxFor(x => x.FaturaSeriNo, new { @class = "form-control" })
+            <br>
+
+            @Html.LabelFor(x => x.FaturaSıraNo)
+            @Html.TextBoxFor(x => x.FaturaSıraNo, new { @class = "form-control" })
+
+            <br>
+
+            @Html.LabelFor(x => x.FaturaTarih)
+            @Html.TextBoxFor(x => x.FaturaTarih, new { @class = "form-control", type="date"})
+
+            <br>
+
+            @Html.LabelFor(x => x.FaturaSaat)
+            @Html.TextBoxFor(x => x.FaturaSaat, new { @class = "form-control" })
+
+            <br>
+
+            @Html.LabelFor(x => x.TeslimAlan)
+            @Html.TextBoxFor(x => x.TeslimAlan, new { @class = "form-control"})
+
+            <br>
+            @Html.LabelFor(x => x.TeslimEden)
+            @Html.TextBoxFor(x => x.TeslimEden, new { @class = "form-control"})
+
+
+            <br>
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Ekle</button>
+        </div>
+    </form>
+</div>
+

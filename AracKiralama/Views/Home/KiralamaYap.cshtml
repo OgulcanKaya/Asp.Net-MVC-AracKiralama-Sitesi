@@ -1,0 +1,21 @@
+﻿@model AracKiralama.Models.Sınıflar.KiralamaHareket
+
+@using (Html.BeginForm("KiralamaYap", "Home", FormMethod.Post))
+{
+
+        @Html.LabelFor(x => x.Tarih)
+        @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", Type = "datetime-Local" })
+
+        <br>
+
+        @Html.LabelFor(x => x.TeslimTarih)
+        @Html.TextBoxFor(x => x.TeslimTarih, new { @class = "form-control", Type = "datetime-Local" })
+
+        <br />
+        @Html.HiddenFor(x => x.Arabaid)
+
+
+        <button class="btn btn-success">Kirala</button>
+        <br>
+
+}
