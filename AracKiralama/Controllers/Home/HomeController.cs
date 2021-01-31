@@ -22,7 +22,7 @@ namespace AracKiralama.Controllers.Home
             hmpg.Comments = ctx.Commentss.ToList();
             var mail = User.Identity.Name.ToString();
             hmpg.Kullanıcıs = ctx.Kullanıcıs.Where(x => x.Mail == mail).ToList();
-            
+
             return View(hmpg);
         }
 
@@ -110,7 +110,9 @@ namespace AracKiralama.Controllers.Home
         }
 
 
+        [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult KiralamaYap(KiralamaHareket kiralamaHareket, int id)
         {
 
@@ -126,7 +128,7 @@ namespace AracKiralama.Controllers.Home
             kiralamaHareket.ToplamTutar = (Decimal)toplamtutar;
             ctx.KiralamaHarekets.Add(kiralamaHareket);
             ctx.SaveChanges();
-            return RedirectToAction("AraçDetay", new { id = id });
+            return RedirectToAction("Index", "UserPage");
 
         }
 
@@ -135,9 +137,9 @@ namespace AracKiralama.Controllers.Home
         {
             return PartialView("KullanıcıYorum");
         }
-        
 
-       
+
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult KullanıcıYorum(Comments cmnt, int id)
@@ -153,6 +155,17 @@ namespace AracKiralama.Controllers.Home
             ctx.SaveChanges();
             return RedirectToAction("AraçDetay", new { id = id });
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult MesajGÖnder(Messages msg)
+        {
+            msg.status = false;
+            ctx.Messages.Add(msg);
+            ctx.SaveChanges();
+            return RedirectToAction("İletişim");
+        }
+
 
     }
 }

@@ -6,17 +6,36 @@
     @Html.AntiForgeryToken()
     <div class="card-body">
         <div class="form-group">
-            @Html.LabelFor(x => x.Comment)
-            @Html.TextAreaFor(x => x.Comment, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(x => x.Rate)
-            @Html.TextBoxFor(x => x.Rate , new { @class = "form-control" })
-        </div>
-       
-       @Html.HiddenFor(x=>x.Arabaid)
+            @Html.LabelFor(x => x.Comment) :
+            @Html.TextAreaFor(x => x.Comment, new { @class = "form-control", rows = "4", cols = "50" })
 
-            <button class="btn btn-success">Yorum Yap</button>
+
+            <br />
+            @Html.LabelFor(x => x.Rate) :
+            <br />
+            <div class="rate">
+
+                <input type="radio" id="star5" name="Rate" value="5" />
+                <label for="star5" title="5 stars">5 stars</label>
+                <input type="radio" id="star4" name="Rate" value="4" />
+                <label for="star4" title="4 stars">4 stars</label>
+                <input type="radio" id="star3" name="Rate" value="3" />
+                <label for="star3" title="3 stars">3 stars</label>
+                <input type="radio" id="star2" name="Rate" value="2" />
+                <label for="star2" title="2 stars">2 stars</label>
+                <input type="radio" id="star1" name="Rate" value="1" />
+                <label for="star1" title="1 stars">1 star</label>
+
+            </div>
+        </div>
+
+
+        @Html.HiddenFor(x => x.Arabaid)
+
+
+
 
     </div>
+    <button class="btn btn-success" style="margin-left:15px;">Yorum Yap</button>
 }
+

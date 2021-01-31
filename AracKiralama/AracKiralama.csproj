@@ -167,6 +167,7 @@
     <Compile Include="Models\Sınıflar\Kategori.cs" />
     <Compile Include="Models\Sınıflar\KiralamaHareket.cs" />
     <Compile Include="Models\Sınıflar\Kullanıcı.cs" />
+    <Compile Include="Models\Sınıflar\Messages.cs" />
     <Compile Include="Models\Sınıflar\Setting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -2232,6 +2233,7 @@
     <Content Include="Content\rent-a-car\vendor\jquery\jquery.min.js" />
     <Content Include="Content\rent-a-car\vendor\jquery\jquery.slim.js" />
     <Content Include="Content\rent-a-car\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Content\stars.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

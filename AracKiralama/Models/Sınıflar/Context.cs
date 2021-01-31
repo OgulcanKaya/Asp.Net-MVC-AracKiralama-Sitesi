@@ -18,6 +18,7 @@ namespace AracKiralama.Models.Sınıflar
         public DbSet<Kullanıcı> Kullanıcıs{ get; set; }
         public DbSet<Setting> Settings{ get; set; }
         public DbSet<Galeri> Galeris{ get; set; }
+        public DbSet<Messages> Messages{ get; set; }
 
 
          

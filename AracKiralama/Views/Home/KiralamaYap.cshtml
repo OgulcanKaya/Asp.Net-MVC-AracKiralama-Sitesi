@@ -2,7 +2,7 @@
 
 @using (Html.BeginForm("KiralamaYap", "Home", FormMethod.Post))
 {
-
+        @Html.AntiForgeryToken()
         @Html.LabelFor(x => x.Tarih)
         @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", Type = "datetime-Local" })
 
