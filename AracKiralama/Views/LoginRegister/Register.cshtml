@@ -34,6 +34,7 @@
                 <p class="login-box-msg">Register a new membership</p>
 
                 <form action="" method="post">
+                    @Html.AntiForgeryToken()
                     <div class="input-group mb-3">
                         <input type="text" name="Ad" class="form-control" placeholder="Your Name" required="">
                         <div class="input-group-append">

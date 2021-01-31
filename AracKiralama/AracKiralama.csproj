@@ -3063,6 +3063,11 @@
     <Content Include="Views\Home\AraçDetay.cshtml" />
     <Content Include="Views\Home\KiralamaYap.cshtml" />
     <Content Include="Views\UserPage\Index.cshtml" />
+    <Content Include="Views\UserPage\kullanıcıKiralama.cshtml" />
+    <Content Include="Views\UserPage\kullanıcıYorum.cshtml" />
+    <Content Include="Views\UserPage\KullanıcıKiralamalarListe.cshtml" />
+    <Content Include="Views\UserPage\ProfilGetir.cshtml" />
+    <Content Include="Views\Home\KullanıcıYorum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

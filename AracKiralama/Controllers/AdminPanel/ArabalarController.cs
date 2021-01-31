@@ -83,7 +83,7 @@ namespace AracKiralama.Controllers.AdminPanel
             crcmnt.Araba = ctx.Arabalars.Where(x => x.ArabaId == id).ToList();
             crcmnt.Comments = ctx.Commentss.Where(x => x.Arabaid == id).ToList();
             crcmnt.Galeris = ctx.Galeris.Where(x => x.Arabaid == id).ToList();
-      
+
             return View("ArabaDetayı", crcmnt);
         }
         public ActionResult ArabaDetay(int id)
@@ -96,8 +96,8 @@ namespace AracKiralama.Controllers.AdminPanel
             return View("ArabaDetay", car);
         }
 
-        public ActionResult ArabaGetir(int id) 
-        
+        public ActionResult ArabaGetir(int id)
+
         {
             List<SelectListItem> deger1 = (from x in ctx.Kategoris.ToList()
                                            select new SelectListItem
@@ -120,32 +120,54 @@ namespace AracKiralama.Controllers.AdminPanel
 
         public ActionResult ArabaGüncelle(Arabalar arb)
         {
-            
-            if (Request.Files.Count > 0)
+            var car = ctx.Arabalars.Find(arb.ArabaId);
+
+            if (Request.Files.Count > 0 && arb.Image !=null)
             {
                 string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
                 string yol = "~/Assets/Arabalar/" + dosyaadi;
                 Request.Files[0].SaveAs(Server.MapPath(yol));
                 arb.Image = "/Assets/Arabalar/" + dosyaadi;
+                car.Title = arb.Title;
+                car.Keywords = arb.Keywords;
+                car.Description = arb.Description;
+                car.Kategoriid = arb.Kategoriid;
+                car.Marka = arb.Marka;
+                car.Model = arb.Model;
+                car.Detail = arb.Detail;
+                car.Motorgücü = arb.Motorgücü;
+                car.Image = arb.Image;
+                car.Yıl = arb.Yıl;
+                car.Vites = arb.Vites;
+                car.Km = arb.Km;
+                car.Fiyat = arb.Fiyat;
+                car.Status = arb.Status;
+                car.Created_At = arb.Created_At;
+                car.Updated_at = DateTime.Parse(DateTime.Now.ToShortDateString());
+                ctx.SaveChanges();
+
             }
-            var car = ctx.Arabalars.Find(arb.ArabaId);
-            car.Title = arb.Title;
-            car.Keywords = arb.Keywords;
-            car.Description = arb.Description;
-            car.Kategoriid = arb.Kategoriid;
-            car.Marka = arb.Marka;
-            car.Model = arb.Model;
-            car.Detail = arb.Detail;
-            car.Motorgücü = arb.Motorgücü;
-            car.Yıl = arb.Yıl;
-            car.Vites = arb.Vites;
-            car.Km = arb.Km;
-            car.Image = arb.Image;
-            car.Fiyat = arb.Fiyat;
-            car.Status = arb.Status;
-            car.Created_At = arb.Created_At;
-            car.Updated_at = DateTime.Parse(DateTime.Now.ToShortDateString());
-            ctx.SaveChanges();
+            else
+            {
+                car.Title = arb.Title;
+                car.Keywords = arb.Keywords;
+                car.Description = arb.Description;
+                car.Kategoriid = arb.Kategoriid;
+                car.Marka = arb.Marka;
+                car.Model = arb.Model;
+                car.Detail = arb.Detail;
+                car.Motorgücü = arb.Motorgücü;
+                car.Yıl = arb.Yıl;
+                car.Vites = arb.Vites;
+                car.Km = arb.Km;
+                car.Fiyat = arb.Fiyat;
+                car.Status = arb.Status;
+                car.Created_At = arb.Created_At;
+                car.Updated_at = DateTime.Parse(DateTime.Now.ToShortDateString());
+                ctx.SaveChanges();
+
+            }
+            
 
             return RedirectToAction("Index");
 
@@ -157,12 +179,12 @@ namespace AracKiralama.Controllers.AdminPanel
             var galeri = ctx.Galeris.Where(x => x.Arabaid == id).ToList();
             return View("GaleriResim", galeri);
         }
-        
-        
+
+
         [HttpGet]
         public PartialViewResult GaleriResimEkle()
         {
-           
+
             return PartialView("GaleriResimEkle");
         }
 
@@ -181,7 +203,7 @@ namespace AracKiralama.Controllers.AdminPanel
             g.Arabaid = id;
             ctx.Galeris.Add(g);
             ctx.SaveChanges();
-            return RedirectToAction("GaleriResim", new {id = id });
+            return RedirectToAction("GaleriResim", new { id = id });
 
         }
     }

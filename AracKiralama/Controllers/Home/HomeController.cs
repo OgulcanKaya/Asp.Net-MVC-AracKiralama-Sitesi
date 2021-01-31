@@ -93,7 +93,7 @@ namespace AracKiralama.Controllers.Home
             hmpg.Kategoris = ctx.Kategoris.ToList();
             hmpg.Settings = ctx.Settings.ToList();
             hmpg.Arabalars = ctx.Arabalars.Where(x => x.ArabaId == id).ToList();
-            hmpg.Comments = ctx.Commentss.Where(x => x.Arabaid == id).ToList();
+            hmpg.Comments = ctx.Commentss.Where(x => x.Arabaid == id && x.Status == true).ToList();
             hmpg.Galeris = ctx.Galeris.Where(x => x.Arabaid == id).ToList();
             var mail = User.Identity.Name.ToString();
             hmpg.Kullanıcıs = ctx.Kullanıcıs.Where(x => x.Mail == mail).ToList();
@@ -130,6 +130,29 @@ namespace AracKiralama.Controllers.Home
 
         }
 
+        [HttpGet]
+        public PartialViewResult KullanıcıYorum()
+        {
+            return PartialView("KullanıcıYorum");
+        }
+        
+
+       
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult KullanıcıYorum(Comments cmnt, int id)
+        {
+            var mail = User.Identity.Name.ToString();
+            var kullanıcıID = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            cmnt.Kullanıcıid = kullanıcıID;
+            cmnt.Arabaid = id;
+            cmnt.Status = false;
+            cmnt.Created_at = DateTime.Parse(DateTime.Today.ToShortDateString());
+            cmnt.Updated_at = DateTime.Parse(DateTime.Today.ToShortDateString());
+            ctx.Commentss.Add(cmnt);
+            ctx.SaveChanges();
+            return RedirectToAction("AraçDetay", new { id = id });
+        }
 
     }
 }

@@ -25,7 +25,7 @@
 
                     <h1>@araba.Marka Detay sayfası</h1>
 
-                    
+
                 </div>
             </div>
         </div>
@@ -70,45 +70,47 @@
                 @foreach (var car in Model.Arabalars)
                 {
 
-            <div class="col-12 col-sm-6">
+                    <div class="col-12 col-sm-6">
 
 
-                <h3 class="my-3">@car.Marka @car.Model</h3>
+                        <h3 class="my-3">@car.Marka @car.Model</h3>
 
-                <p>Kategori : @car.Kategori.Title</p>
-                <p>Motor Gücü : @car.Motorgücü</p>
-                <p>Yıl: @car.Yıl</p>
-                <p>Vites: @car.Vites</p>
-                <p>Km: @car.Km</p>
-                <p>Status: @car.Status</p>
-                <p>Eklenme Tarihi : @car.Created_At.ToString("dd.MM.yyy")  </p>
-                <p>Güncellenme Tarihi : @car.Updated_at.ToString("dd.MM.yyy")  </p>
-                <hr>
+                        <p>Kategori : @car.Kategori.Title</p>
+                        <p>Motor Gücü : @car.Motorgücü</p>
+                        <p>Yıl: @car.Yıl</p>
+                        <p>Vites: @car.Vites</p>
+                        <p>Km: @car.Km</p>
+                        <p>Status: @car.Status</p>
+                        <p>Eklenme Tarihi : @car.Created_At.ToString("dd.MM.yyy")  </p>
+                        <p>Güncellenme Tarihi : @car.Updated_at.ToString("dd.MM.yyy")  </p>
+                        <hr>
 
-                <div class="bg-blue py-2 px-3 mt-4">
-                    <h2 class="mb-0">
-                    </h2>
-                    <h4 class="mt-0">
-                        <small>Fiyat : @car.Fiyat ₺ </small>
-                    </h4>
-                </div>
-                <br />
+                        <div class="bg-blue py-2 px-3 mt-4">
+                            <h2 class="mb-0">
+                            </h2>
+                            <h4 class="mt-0">
+                                <small>Fiyat : @car.Fiyat ₺ </small>
+                            </h4>
+                        </div>
+                        <br />
 
-                @Html.Action("KiralamaYap", "Home")
-            </div>
+                        @Html.Action("KiralamaYap", "Home")
+                       
+                    </div>
                 }
-               
+
 
 
             </div>
-          
+
 
 
             <div class="row mt-4">
                 <nav class="w-100">
                     <div class="nav nav-tabs" id="product-tab" role="tablist">
                         <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="false">Detail</a>
-                        <a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab" href="#product-comments" role="tab" aria-controls="product-comments" aria-selected="true">Comments</a>
+                        <a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab" href="#product-comments" role="tab" aria-controls="product-comments" aria-selected="true">Yorumlar</a>
+                        <a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab" href="#comments" role="tab" aria-controls="product-comments" aria-selected="true">Yorum yap</a>
                     </div>
                 </nav>
                 <div class="tab-content p-3" id="nav-tabContent">
@@ -147,7 +149,13 @@
                         }
                     </div>
 
+                    <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="product-comments-tab">
+                        @foreach (var car in Model.Arabalars)
+                        {
+                            @Html.Action("KullanıcıYorum", "Home")
 
+                        }
+                    </div>
 
                 </div>
             </div>

@@ -50,6 +50,7 @@ namespace AracKiralama.Controllers.Home
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Register(Kullanıcı k)
         {
             k.Created_at = DateTime.Parse(DateTime.Now.ToShortDateString());
@@ -70,6 +71,7 @@ namespace AracKiralama.Controllers.Home
 
 
         [HttpPost]
+       
         public ActionResult AdminLogin(Admin a)
         {
             var admin = ctx.Admins.FirstOrDefault(x => x.Mail == a.Mail && x.Password == a.Password);

@@ -1,0 +1,22 @@
+﻿@model AracKiralama.Models.Sınıflar.Comments
+
+
+@using (Html.BeginForm("KullanıcıYorum", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="card-body">
+        <div class="form-group">
+            @Html.LabelFor(x => x.Comment)
+            @Html.TextAreaFor(x => x.Comment, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Rate)
+            @Html.TextBoxFor(x => x.Rate , new { @class = "form-control" })
+        </div>
+       
+       @Html.HiddenFor(x=>x.Arabaid)
+
+            <button class="btn btn-success">Yorum Yap</button>
+
+    </div>
+}
