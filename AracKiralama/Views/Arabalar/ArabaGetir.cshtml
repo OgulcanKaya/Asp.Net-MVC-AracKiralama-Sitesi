@@ -56,7 +56,7 @@
 
             <br>
             @Html.LabelFor(x => x.Image)
-            <input type="file" name="Image" class="form-control-file"/>
+            <input type="file" name="Image" class="form-control-file" />
             @*@Html.TextBoxFor(x => x.Image, new { @class = "form-control" })*@
 
             <br>
@@ -85,7 +85,11 @@
 
             <br>
             @Html.LabelFor(x => x.Status)
-            @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+            <select class="form-control" name="Status">
+                <option>True</option>
+                <option>False</option>
+
+            </select>
 
             <br>
 

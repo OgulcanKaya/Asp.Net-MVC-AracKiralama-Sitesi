@@ -64,23 +64,26 @@
                                 <tbody>
                                     @foreach (var cars in Model)
                                     {
-                                        <tr role="row" class="odd">
-                                            <td>@cars.ArabaId</td>
-                                            <td>@cars.Kategori.Title</td>
-                                            <td>@cars.Title</td>
-                                            <td>@cars.Marka</td>
-                                            <td>@cars.Model</td>
-                                            <td>@cars.Image</td>
-                                            <td>@cars.Motorgücü</td>
-                                            <td>@cars.Yıl</td>
-                                            <td>@cars.Vites</td>
-                                            <td>@cars.Km</td>
-                                            <td>@cars.Fiyat</td>
-                                            <td>@cars.Status</td>
+                                    <tr role="row" class="odd">
+                                        <td>@cars.ArabaId</td>
+                                        <td>@cars.Kategori.Title</td>
+                                        <td>@cars.Title</td>
+                                        <td>@cars.Marka</td>
+                                        <td>@cars.Model</td>
+                                        <td>
+                                            <img src="@cars.Image" style="width:80px; height:50px;" />
+                                        
+                                        </td>
+                                        <td>@cars.Motorgücü</td>
+                                        <td>@cars.Yıl</td>
+                                        <td>@cars.Vites</td>
+                                        <td>@cars.Km</td>
+                                        <td>@cars.Fiyat</td>
+                                        <td>@cars.Status</td>
 
-                                            <td><a href="/Arabalar/ArabaAktifleştir/@cars.ArabaId" class="btn btn-success">Aktifleştir </a></td>
+                                        <td><a href="/Arabalar/ArabaAktifleştir/@cars.ArabaId" class="btn btn-success">Aktifleştir </a></td>
 
-                                        </tr>
+                                    </tr>
 
                                     }
 

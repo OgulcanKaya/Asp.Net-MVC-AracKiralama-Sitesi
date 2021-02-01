@@ -88,7 +88,11 @@
 
                 <br>
                 @Html.LabelFor(x => x.Status)
-                @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+                <select class="form-control" name="Status">
+                    <option>True</option>
+                    <option>False</option>
+
+                </select>
 
                 <br>
             </div>
