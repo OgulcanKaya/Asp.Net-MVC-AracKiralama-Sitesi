@@ -18,8 +18,9 @@ namespace AracKiralama.Models.Sınıflar
         public string mail { get; set; }
         [Required]
         public string message { get; set; }
-        public bool status { get; set; }
+        public string status { get; set; }
         public DateTime created_at { get; set; }
+        public DateTime updated_at { get; set; }
         
     }
 }

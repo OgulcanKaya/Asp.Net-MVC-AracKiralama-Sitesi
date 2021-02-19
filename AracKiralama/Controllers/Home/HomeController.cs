@@ -115,7 +115,9 @@ namespace AracKiralama.Controllers.Home
         [ValidateAntiForgeryToken]
         public ActionResult KiralamaYap(KiralamaHareket kiralamaHareket, int id)
         {
-
+            Arabalar arb = new Arabalar();
+            arb = ctx.Arabalars.Where(x => x.ArabaId == id).FirstOrDefault();
+            arb.Kirada = true;
             var fiyat = ctx.Arabalars.Where(x => x.ArabaId == id).Select(y => y.Fiyat).FirstOrDefault();
             var günsayısı = (kiralamaHareket.TeslimTarih - kiralamaHareket.Tarih).TotalDays;
             var toplamtutar = (decimal)günsayısı * fiyat;
@@ -131,6 +133,9 @@ namespace AracKiralama.Controllers.Home
             return RedirectToAction("Index", "UserPage");
 
         }
+
+
+
 
         [HttpGet]
         public PartialViewResult KullanıcıYorum()
@@ -160,7 +165,9 @@ namespace AracKiralama.Controllers.Home
         [ValidateAntiForgeryToken]
         public ActionResult MesajGÖnder(Messages msg)
         {
-            msg.status = false;
+            msg.status = "New";
+            msg.created_at = DateTime.Parse(DateTime.Today.ToShortDateString());
+            msg.updated_at = DateTime.Parse(DateTime.Today.ToShortDateString());
             ctx.Messages.Add(msg);
             ctx.SaveChanges();
             return RedirectToAction("İletişim");

@@ -1,0 +1,118 @@
+﻿
+@model AracKiralama.Models.Sınıflar.Messages
+
+
+@{
+    ViewBag.Title = "Messages";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1> Detay Sayfasına Hoşgeldiniz!</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Arabalar/Index">Araba Detay</a></li>
+                    <li class="breadcrumb-item active">Araba Detay Sayfası</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="content">
+
+    <div class="card-body">
+        <div class="card">
+            <div class="card-header">
+            </div>
+            <div class="card-body">
+                <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4" style="width:auto">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6"></div>
+                        <div class="col-sm-12 col-md-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            @using (Html.BeginForm("MesajGüncelle", "Messages", FormMethod.Post))
+                            {
+                                <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
+
+                                    <tbody>
+                                            <tr role="row" class="odd">
+                                                <th>MessageId </th>
+                                                <td>@Html.TextBoxFor(x => x.messageid, new { @class = "form-control", @readonly = "readonly" })</td>
+
+                                            </tr>
+
+                                            <tr role="row" class="odd">
+                                                <th>İsim </th>
+                                                <td>@Html.TextBoxFor(x => x.isim, new { @class = "form-control" , @readonly = "readonly" }) </td>
+
+                                            </tr>
+
+                                            <tr role="row" class="odd">
+                                                <th>Mail</th>
+                                                <td>@Html.TextBoxFor(x => x.mail, new { @class = "form-control", @readonly = "readonly" })</td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <th>Message</th>
+                                                <td>@Html.TextAreaFor(x => x.message, new { @class = "form-control", @readonly = "readonly" })</td>
+
+                                            </tr>
+
+                                            <tr role="row" class="odd">
+                                                <th>Status</th>
+                                                <td>
+                                                    <select class="form-control" name="status">
+
+                                                        <option>Yeni</option>
+                                                        <option>Okundu</option>
+
+                                                    </select>
+                                                </td>
+
+
+                                            </tr>
+
+                                            <tr role="row" class="odd">
+                                                <th>Created_At</th>
+                                                <td>@Html.TextBoxFor(x => x.created_at, new { @class = "form-control", @readonly = "readonly" })</td>
+
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <th>Updated_At</th>
+                                                <td>@Html.TextBoxFor(x => x.updated_at, new { @class = "form-control", @readonly = "readonly" })</td>
+
+                                            </tr>
+
+
+
+                                    </tbody>
+
+                                </table>
+
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                                </div>
+
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+

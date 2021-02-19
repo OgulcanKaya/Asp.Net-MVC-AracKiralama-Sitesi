@@ -20,6 +20,7 @@ namespace AracKiralama.Controllers.AdminPanel
             var aktifcar = ctx.Arabalars.Where(x=>x.Status == true).Count().ToString();
             var pasifcar = ctx.Arabalars.Where(x => x.Status == false).Count().ToString();
             var cmnt = ctx.Commentss.Count().ToString();
+            var message = ctx.Messages.Count().ToString();
             var kazanç = ctx.KiralamaHarekets.Select(x=>x.ToplamTutar).Sum().ToString();
             var aktifkullanıcı = ctx.Kullanıcıs.Where(x => x.Status == true).Count().ToString();
             var pasifkullanıcı = ctx.Kullanıcıs.Where(x => x.Status == false).Count().ToString();
@@ -38,6 +39,7 @@ namespace AracKiralama.Controllers.AdminPanel
             ViewBag.pasifcar = pasifcar;
             ViewBag.cmnt = cmnt;
             ViewBag.kazanç = kazanç;
+            ViewBag.message = message;
             ViewBag.aktifkullanıcı = aktifkullanıcı;
             ViewBag.pasifkullanıcı = pasifkullanıcı;
             ViewBag.fatura = fatura;

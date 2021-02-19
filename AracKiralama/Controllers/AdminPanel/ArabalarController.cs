@@ -70,11 +70,29 @@ namespace AracKiralama.Controllers.AdminPanel
 
         }
 
+        public ActionResult KiradanDöndür(int id)
+        {
+            var car = ctx.Arabalars.Find(id);
+            car.Kirada = false;
+            ctx.SaveChanges();
+            return RedirectToAction("KiralananArabalar");
+
+        }
+
+
+
         public ActionResult SilinenArabalar()
         {
             var cars = ctx.Arabalars.Where(x => x.Status == false).ToList();
             return View(cars);
         }
+
+        public ActionResult KiralananArabalar()
+        {
+            var cars = ctx.Arabalars.Where(x => x.Kirada == true).ToList();
+            return View(cars);
+        }
+
 
         public ActionResult ArabaDetayı(int id)
         {

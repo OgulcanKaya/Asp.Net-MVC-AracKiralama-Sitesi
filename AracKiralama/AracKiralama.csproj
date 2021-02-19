@@ -141,6 +141,7 @@
     <Compile Include="Controllers\AdminPanel\KategoriController.cs" />
     <Compile Include="Controllers\AdminPanel\KiralamaController.cs" />
     <Compile Include="Controllers\AdminPanel\KullanıcılarController.cs" />
+    <Compile Include="Controllers\AdminPanel\MessagesController.cs" />
     <Compile Include="Controllers\AdminPanel\SettingController.cs" />
     <Compile Include="Controllers\AdminPanel\İstatistikController.cs" />
     <Compile Include="Controllers\Home\HomeController.cs" />
@@ -3070,6 +3071,9 @@
     <Content Include="Views\UserPage\KullanıcıKiralamalarListe.cshtml" />
     <Content Include="Views\UserPage\ProfilGetir.cshtml" />
     <Content Include="Views\Home\KullanıcıYorum.cshtml" />
+    <Content Include="Views\Messages\Index.cshtml" />
+    <Content Include="Views\Messages\MesajGetir.cshtml" />
+    <Content Include="Views\Arabalar\KiralananArabalar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
