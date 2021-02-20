@@ -16,6 +16,7 @@ namespace AracKiralama.Models.Sınıflar
         public IEnumerable<Galeri> Galeris { get; set; }
         public IEnumerable<Kullanıcı> Kullanıcıs { get; set; }
         public IEnumerable<KiralamaHareket> KiralamaHarekets { get; set; }
+        public IEnumerable<KiralamaDetay> KiralamaDetays { get; set; }
 
 
     }

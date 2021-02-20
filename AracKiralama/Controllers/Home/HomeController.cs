@@ -115,26 +115,38 @@ namespace AracKiralama.Controllers.Home
         [ValidateAntiForgeryToken]
         public ActionResult KiralamaYap(KiralamaHareket kiralamaHareket, int id)
         {
-            Arabalar arb = new Arabalar();
-            arb = ctx.Arabalars.Where(x => x.ArabaId == id).FirstOrDefault();
-            arb.Kirada = true;
+
             var fiyat = ctx.Arabalars.Where(x => x.ArabaId == id).Select(y => y.Fiyat).FirstOrDefault();
             var günsayısı = (kiralamaHareket.TeslimTarih - kiralamaHareket.Tarih).TotalDays;
             var toplamtutar = (decimal)günsayısı * fiyat;
-            var mail = User.Identity.Name.ToString();
-            var kullanıcıID = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
-            kiralamaHareket.Kullanıcıid = kullanıcıID;
             kiralamaHareket.Arabaid = id;
             kiralamaHareket.Fiyat = fiyat;
             kiralamaHareket.GünSayısı = (int)günsayısı;
             kiralamaHareket.ToplamTutar = (Decimal)toplamtutar;
-            ctx.KiralamaHarekets.Add(kiralamaHareket);
-            ctx.SaveChanges();
-            return RedirectToAction("Index", "UserPage");
+            ViewBag.id = kiralamaHareket.Arabaid;
+            ViewBag.title = ctx.Arabalars.Where(x => x.ArabaId == id).Select(y => y.Title).FirstOrDefault();
+            ViewBag.image = ctx.Arabalars.Where(x => x.ArabaId == id).Select(y => y.Image).FirstOrDefault();
+
+            return View("KiralamaDetay", kiralamaHareket);
 
         }
 
 
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult KiralamaDetay(KiralamaHareket kiralamaHareket)
+        {
+            Arabalar arb = new Arabalar();
+            arb = ctx.Arabalars.Where(x => x.ArabaId == kiralamaHareket.Arabaid).FirstOrDefault();
+            arb.Kirada = true;
+            var mail = User.Identity.Name.ToString();
+            var kullanıcıID = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            kiralamaHareket.Kullanıcıid = kullanıcıID;
+            ctx.KiralamaHarekets.Add(kiralamaHareket);
+            ctx.SaveChanges();
+            return RedirectToAction("Index", "UserPage");
+        }
 
 
         [HttpGet]

@@ -166,6 +166,7 @@
     <Compile Include="Models\Sınıflar\Galeri.cs" />
     <Compile Include="Models\Sınıflar\HomePageDatas.cs" />
     <Compile Include="Models\Sınıflar\Kategori.cs" />
+    <Compile Include="Models\Sınıflar\KiralamaDetay.cs" />
     <Compile Include="Models\Sınıflar\KiralamaHareket.cs" />
     <Compile Include="Models\Sınıflar\Kullanıcı.cs" />
     <Compile Include="Models\Sınıflar\Messages.cs" />
@@ -3074,6 +3075,8 @@
     <Content Include="Views\Messages\Index.cshtml" />
     <Content Include="Views\Messages\MesajGetir.cshtml" />
     <Content Include="Views\Arabalar\KiralananArabalar.cshtml" />
+    <Content Include="Views\Home\Kirala.cshtml" />
+    <Content Include="Views\Home\KiralamaDetay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

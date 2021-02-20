@@ -38,7 +38,7 @@ namespace AracKiralama.Controllers.Home
         {
             var mail = User.Identity.Name.ToString();
             var kullanıcıID = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
-            var kiralamalar = ctx.KiralamaHarekets.Where(x => x.Kullanıcıid == kullanıcıID).OrderByDescending(y=>y.Tarih).ToList();
+            var kiralamalar = ctx.KiralamaHarekets.Where(x => x.Kullanıcıid == kullanıcıID).OrderByDescending(y=>y.KiralamaId).ToList();
             return PartialView(kiralamalar);
         }
 
