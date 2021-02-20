@@ -15,13 +15,30 @@ namespace AracKiralama.Controllers.AdminPanel
         public ActionResult Kategori(int sayfa =1)
         {
             var kategoriler = ctx.Kategoris.ToList().ToPagedList(sayfa,5);
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
             return View(kategoriler);
         }
 
         [HttpGet]
         public ActionResult KategoriEkle() {
 
-
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
             return View();
         }
         [HttpPost]
@@ -46,6 +63,15 @@ namespace AracKiralama.Controllers.AdminPanel
         public ActionResult KategoriGetir(int id) 
         {
             var ktgr = ctx.Kategoris.Find(id);
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
             return View("KategoriGetir", ktgr);
 
         }

@@ -14,13 +14,30 @@ namespace AracKiralama.Controllers.AdminPanel
         public ActionResult Index()
         {
             var messages = ctx.Messages.OrderByDescending(x => x.messageid).ToList();
-
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
             return View(messages);
         }
 
         public ActionResult MesajGetir(int id)
         {
             var msg = ctx.Messages.Where(x => x.messageid == id).FirstOrDefault();
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
             return View("MesajGetir",msg);
 
         }

@@ -14,13 +14,30 @@ namespace AracKiralama.Controllers.AdminPanel
         public ActionResult Index()
         {
             var ftr = ctx.Faturalars.ToList();
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
             return View(ftr);
         }
 
         [HttpGet]
         public ActionResult FaturaEkle()
         {
-
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
             return View();
 
         }
@@ -37,6 +54,15 @@ namespace AracKiralama.Controllers.AdminPanel
         public ActionResult FaturaGetir(int id)
         {
             var fatura = ctx.Faturalars.Find(id);
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
 
             return View("FaturaGetir", fatura);
 
@@ -62,6 +88,15 @@ namespace AracKiralama.Controllers.AdminPanel
         public ActionResult FaturaDetay(int id)
         {
             var ftr = ctx.FaturaKalems.Where(x => x.Faturaid == id).ToList();
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
 
             return View(ftr);
 
@@ -70,6 +105,15 @@ namespace AracKiralama.Controllers.AdminPanel
         [HttpGet]
         public ActionResult YeniKalem()
         {
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
             return View();
 
         }

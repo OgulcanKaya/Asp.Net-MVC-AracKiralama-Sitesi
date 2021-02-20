@@ -17,6 +17,15 @@ namespace AracKiralama.Controllers.AdminPanel
         public ActionResult Index()
         {
             var cars = ctx.Arabalars.Where(x => x.Status == true).ToList();
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
             return View(cars);
         }
 
@@ -33,6 +42,15 @@ namespace AracKiralama.Controllers.AdminPanel
 
                                            }).ToList();
             ViewBag.dgr1 = deger1;
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
             return View();
         }
 
@@ -84,12 +102,30 @@ namespace AracKiralama.Controllers.AdminPanel
         public ActionResult SilinenArabalar()
         {
             var cars = ctx.Arabalars.Where(x => x.Status == false).ToList();
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
             return View(cars);
         }
 
         public ActionResult KiralananArabalar()
         {
             var cars = ctx.Arabalars.Where(x => x.Kirada == true).ToList();
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
             return View(cars);
         }
 
@@ -97,10 +133,18 @@ namespace AracKiralama.Controllers.AdminPanel
         public ActionResult ArabaDetayı(int id)
         {
             CarDetay crcmnt = new CarDetay();
-
             crcmnt.Araba = ctx.Arabalars.Where(x => x.ArabaId == id).ToList();
             crcmnt.Comments = ctx.Commentss.Where(x => x.Arabaid == id).ToList();
             crcmnt.Galeris = ctx.Galeris.Where(x => x.Arabaid == id).ToList();
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
 
             return View("ArabaDetayı", crcmnt);
         }
@@ -110,6 +154,15 @@ namespace AracKiralama.Controllers.AdminPanel
             var car1 = ctx.Arabalars.Where(x => x.ArabaId == id).Select(y => y.Title).FirstOrDefault();
 
             ViewBag.cars = car1;
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
 
             return View("ArabaDetay", car);
         }
@@ -129,6 +182,15 @@ namespace AracKiralama.Controllers.AdminPanel
             ViewBag.dgr1 = deger1;
 
             var car = ctx.Arabalars.Find(id);
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
 
             return View("ArabaGetir", car);
 
@@ -140,7 +202,7 @@ namespace AracKiralama.Controllers.AdminPanel
         {
             var car = ctx.Arabalars.Find(arb.ArabaId);
 
-            if (Request.Files.Count > 0 && arb.Image !=null)
+            if (Request.Files.Count > 0 && arb.Image != null)
             {
                 string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
                 string yol = "~/Assets/Arabalar/" + dosyaadi;
@@ -185,7 +247,7 @@ namespace AracKiralama.Controllers.AdminPanel
                 ctx.SaveChanges();
 
             }
-            
+
 
             return RedirectToAction("Index");
 
@@ -195,6 +257,15 @@ namespace AracKiralama.Controllers.AdminPanel
         public ActionResult GaleriResim(int id)
         {
             var galeri = ctx.Galeris.Where(x => x.Arabaid == id).ToList();
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
             return View("GaleriResim", galeri);
         }
 

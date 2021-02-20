@@ -20,23 +20,23 @@
                 <span class="badge badge-danger navbar-badge">1</span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <a href="#" class="dropdown-item">
+                <a href="/Kullanıcılar/KullanıcıDetay/@ViewBag.KullanıcıId" class="dropdown-item">
                     <!-- Message Start -->
                     <div class="media">
-                        <img src="~/Content/AdminPaneli/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                        <img src="@ViewBag.image" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                         <div class="media-body">
                             <h3 class="dropdown-item-title">
-                                Brad Diesel
+                                @ViewBag.ad @ViewBag.soyad
                                 <span class="float-right text-sm text-danger"></span>
                             </h3>
-                            <p class="text-sm">Go to Profile</p>
+                             <p class="text-sm">Go to Profile</p>
                             
                         </div>
                     </div>
                     <!-- Message End -->
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">Çıkış Yap</a>
+                <a href="/LoginRegister/SignOut" class="dropdown-item dropdown-footer">Çıkış Yap</a>
             </div>
         </li>
 

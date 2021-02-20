@@ -50,6 +50,15 @@ namespace AracKiralama.Controllers.Home
             return PartialView(yorumlar);
         }
 
+        public ActionResult Yorumsil(int id)
+        {
+            var cmnt = ctx.Commentss.Find(id);
+            ctx.Commentss.Remove(cmnt);
+            ctx.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
         public ActionResult KullanıcıKiralamalarListe()
         {
             var mail = User.Identity.Name.ToString();

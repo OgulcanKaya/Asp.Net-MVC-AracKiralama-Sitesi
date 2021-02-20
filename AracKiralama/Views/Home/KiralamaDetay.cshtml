@@ -1,7 +1,7 @@
 ﻿@model AracKiralama.Models.Sınıflar.KiralamaHareket
 
 @{
-    
+
     Layout = null;
 }
 
@@ -13,7 +13,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta name="description" content="@ViewBag.title">
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
@@ -25,8 +25,15 @@
     <link rel="stylesheet" href="~/Content/rent-a-car/assets/css/fontawesome.css">
     <link rel="stylesheet" href="~/Content/rent-a-car/assets/css/style.css">
     <link rel="stylesheet" href="~/Content/rent-a-car/assets/css/owl.css">
-</head>
 
+</head>
+<div id="preloader">
+    <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
 <body>
 
 
@@ -56,7 +63,7 @@
 
 
                         <div class="col-sm-10">
-                            <div class="product-image-thumb"><img src="@ViewBag.image" style="width:750px; height:650px; margin-left:200px"/></div>
+                            <div class="product-image-thumb"><img src="@ViewBag.image"  margin-left:200px" /></div>
 
                         </div>
 
@@ -172,14 +179,14 @@
 
     <script language="text/Javascript">
 
-      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
-      function clearField(t){                   //declaring the array outside of the
-      if(! cleared[t.id]){                      // function makes it static and global
-          cleared[t.id] = 1;  // you could use true and false, but that's more typing
-          t.value='';         // with more chance of typos
-          t.style.color='#fff';
-          }
-      }
+        cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+        function clearField(t) {                   //declaring the array outside of the
+            if (!cleared[t.id]) {                      // function makes it static and global
+                cleared[t.id] = 1;  // you could use true and false, but that's more typing
+                t.value = '';         // with more chance of typos
+                t.style.color = '#fff';
+            }
+        }
     </script>
 
 </body>

@@ -29,8 +29,16 @@ namespace AracKiralama.Controllers.AdminPanel
             var ençokkiralama = ctx.KiralamaHarekets.GroupBy(x => x.Arabalar.Marka).OrderByDescending(z => z.Count()).Select(y => y.Key).FirstOrDefault();
             var enazkiralama = ctx.KiralamaHarekets.GroupBy(x => x.Arabalar.Marka).OrderBy(z => z.Count()).Select(y => y.Key).FirstOrDefault();
             var maxmarka = ctx.Arabalars.GroupBy(x => x.Marka).OrderByDescending(z => z.Count()).Select(y => y.Key).FirstOrDefault();
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
 
-
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
             ViewBag.klc = kullanıcı;
             ViewBag.kira = kiralama;
             ViewBag.car = car;
