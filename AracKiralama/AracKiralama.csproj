@@ -166,7 +166,6 @@
     <Compile Include="Models\Sınıflar\Galeri.cs" />
     <Compile Include="Models\Sınıflar\HomePageDatas.cs" />
     <Compile Include="Models\Sınıflar\Kategori.cs" />
-    <Compile Include="Models\Sınıflar\KiralamaDetay.cs" />
     <Compile Include="Models\Sınıflar\KiralamaHareket.cs" />
     <Compile Include="Models\Sınıflar\Kullanıcı.cs" />
     <Compile Include="Models\Sınıflar\Messages.cs" />
