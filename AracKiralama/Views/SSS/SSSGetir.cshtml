@@ -1,0 +1,65 @@
+﻿@model AracKiralama.Models.Sınıflar.SSS
+@{
+    ViewBag.Title = "SSSGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Kategori Güncelleme</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Kategori/Kategori">Kategoriler</a></li>
+                    <li class="breadcrumb-item active">Kategori Güncelleme Sayfası</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+<br />
+
+
+<h2>Kategori Güncelleme</h2>
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Kategori Ekle</h3>
+    </div>
+    @using (Html.BeginForm("SSSGÜncelle", "SSS", FormMethod.Post))
+    {
+
+        <div class="card-body">
+            @Html.LabelFor(x => x.position)
+            @Html.TextBoxFor(x => x.position, new { @class = "form-control" })
+            <br>
+
+            @Html.LabelFor(x => x.soru)
+            @Html.TextAreaFor(x => x.soru, new { @class = "form-control" })
+            <br>
+
+            @Html.LabelFor(x => x.cevap)
+            @Html.TextAreaFor(x => x.cevap, new { @class = "form-control" })
+
+
+            @Html.LabelFor(x => x.status)
+            <select class="form-control" name="status">
+                <option>True</option>
+                <option>False</option>
+
+            </select>
+
+            <br>
+
+
+            @Html.HiddenFor(x => x.created_at)
+            @Html.HiddenFor(x => x.id)
+            <br>
+
+            <button class="btn btn-warning">Güncelle</button>
+        </div>
+
+    }
+</div>
+

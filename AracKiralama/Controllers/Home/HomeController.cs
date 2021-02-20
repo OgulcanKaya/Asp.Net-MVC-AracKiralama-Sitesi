@@ -185,6 +185,16 @@ namespace AracKiralama.Controllers.Home
             return RedirectToAction("İletişim");
         }
 
+        public ActionResult SSS()
+        {
+            HomePageDatas hmpg = new HomePageDatas();
+            hmpg.Kategoris = ctx.Kategoris.ToList();
+            hmpg.Settings = ctx.Settings.ToList();
+            hmpg.SSSes = ctx.SSSes.ToList();
+            var mail = User.Identity.Name.ToString();
+            hmpg.Kullanıcıs = ctx.Kullanıcıs.Where(x => x.Mail == mail).ToList();
+            return View(hmpg);
+        }
 
     }
 }

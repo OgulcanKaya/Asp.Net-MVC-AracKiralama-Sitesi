@@ -19,6 +19,7 @@ namespace AracKiralama.Models.Sınıflar
         public DbSet<Setting> Settings{ get; set; }
         public DbSet<Galeri> Galeris{ get; set; }
         public DbSet<Messages> Messages{ get; set; }
+        public DbSet<SSS> SSSes{ get; set; }
 
 
          
