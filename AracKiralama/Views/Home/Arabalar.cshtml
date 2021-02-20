@@ -22,9 +22,23 @@
         </div>
     </div>
 </div>
+@using (Html.BeginForm("Arabalar", "Home", FormMethod.Post))
+{
 
-<div class="services">
+    <div style="float:right; margin-right:45px; margin-top:15px;">
+        <p> 
+            <input type="text" name="ara" class="form-control form-control-lg" placeholder="Aramak için dokunun..." autocomplete="on">
+        </p>
+       
+
+    </div>
+
+}
+<div class="services" style="margin-top:70px;">
+
+
     <div class="container">
+
 
         <div class="row">
             @foreach (var car in Model.Arabalars)

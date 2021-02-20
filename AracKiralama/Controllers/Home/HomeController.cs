@@ -61,24 +61,32 @@ namespace AracKiralama.Controllers.Home
             return View(hmpg);
         }
 
-        public ActionResult Arabalar()
+        public ActionResult Arabalar(string ara)
         {
             HomePageDatas hmpg = new HomePageDatas();
             hmpg.Kategoris = ctx.Kategoris.ToList();
             hmpg.Settings = ctx.Settings.ToList();
             hmpg.Arabalars = ctx.Arabalars.ToList();
+            if (!string.IsNullOrEmpty(ara))
+            {
+                hmpg.Arabalars = ctx.Arabalars.Where(x => x.Title.Contains(ara)).ToList();
+            }
             var mail = User.Identity.Name.ToString();
             hmpg.Kullanıcıs = ctx.Kullanıcıs.Where(x => x.Mail == mail).ToList();
 
             return View(hmpg);
 
         }
-        public ActionResult KategoriArabalar(int id)
+        public ActionResult KategoriArabalar(int id,string ara)
         {
             HomePageDatas hmpg = new HomePageDatas();
             hmpg.Kategoris = ctx.Kategoris.ToList();
             hmpg.Settings = ctx.Settings.ToList();
             hmpg.Arabalars = ctx.Arabalars.Where(x => x.Kategoriid == id).ToList();
+            if (!string.IsNullOrEmpty(ara))
+            {
+                hmpg.Arabalars = ctx.Arabalars.Where(x => x.Kategoriid == id && x.Title.Contains(ara)).ToList();
+            }
             var mail = User.Identity.Name.ToString();
             hmpg.Kullanıcıs = ctx.Kullanıcıs.Where(x => x.Mail == mail).ToList();
 
