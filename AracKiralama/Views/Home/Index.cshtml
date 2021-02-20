@@ -83,12 +83,12 @@
                     <div class="col-md-6 align-self-center">
                         <div class="right-content">
                             <span>Biz Kimiz?</span>
-                            <h2>@set.Title<em> Hakkında Daha Fazla Bilgi </em></h2>
+                            <h2>@set.Title<em> Hakkında Bilgi Edinin </em></h2>
                             <p>
 
                                 @Html.Raw(set.Aboutus.Substring(0, Math.Min(set.Aboutus.Length, 356))) ...
                             </p>
-                            <a href="/Home/Hakkımızda" class="filled-button">Read More</a>
+                            <a href="/Home/Hakkımızda" class="filled-button">Daha Fazlası..</a>
                         </div>
                     </div>
                 </div>
@@ -103,8 +103,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-heading">
-                    <h2>What they say <em>about us</em></h2>
-                    <span>testimonials from our greatest clients</span>
+                    <h2>Hakkımızda <em>ne söylediler?</em></h2>
+                    <span>Kullanıcıların Sitemizde Yaptığı Yorumlar</span>
                 </div>
             </div>
             <div class="col-md-12">
@@ -114,7 +114,10 @@
                     {
                         <div class="testimonial-item" >
                             <div class="inner-content">
-                                <img src="@cmnt.Kullanıcıs.Image" alt="">
+                                <a href="/Home/KullanıcıDetayları/@cmnt.Kullanıcıid">
+
+                                    <img src="@cmnt.Kullanıcıs.Image" alt="">
+                                </a>
                                 <span>@cmnt.Kullanıcıs.Ad</span>
                                 <em>@cmnt.Kullanıcıs.Soyad</em>
                                 <p>@cmnt.Created_at.ToString("dd.MM.yyy")</p>

@@ -196,5 +196,16 @@ namespace AracKiralama.Controllers.Home
             return View(hmpg);
         }
 
+        public ActionResult KullanıcıDetayları(int id)
+        {
+            HomePageDatas hmpg = new HomePageDatas();
+            hmpg.Kategoris = ctx.Kategoris.ToList();
+            hmpg.Settings = ctx.Settings.ToList();
+            hmpg.Kullanıcıs2 = ctx.Kullanıcıs.Where(x => x.KullanıcıId == id).ToList();
+            var mail = User.Identity.Name.ToString();
+            hmpg.Kullanıcıs = ctx.Kullanıcıs.Where(x => x.Mail == mail).ToList();
+            ViewBag.Ad = ctx.Kullanıcıs.Where(x => x.KullanıcıId == id).Select(y=>y.Ad).FirstOrDefault();
+            return View(hmpg);
+        }
     }
 }

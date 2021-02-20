@@ -2235,6 +2235,7 @@
     <Content Include="Content\rent-a-car\vendor\jquery\jquery.min.js" />
     <Content Include="Content\rent-a-car\vendor\jquery\jquery.slim.js" />
     <Content Include="Content\rent-a-car\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Content\Siteiconum.ico" />
     <Content Include="Content\stars.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -3081,6 +3082,7 @@
     <Content Include="Views\SSS\Index.cshtml" />
     <Content Include="Views\SSS\SSSekle.cshtml" />
     <Content Include="Views\SSS\SSSGetir.cshtml" />
+    <Content Include="Views\Home\KullanıcıDetayları.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

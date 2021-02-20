@@ -46,7 +46,7 @@
                     @foreach (var car in Model.Arabalars)
                     {
                         <div class="col-12">
-                            <img src="@car.Image" class="product-image" alt="Product Image" />
+                            <img src="@car.Image" class="product-image" alt="Product Image"  style="height:550px; width:650px" />
 
                         </div>
                     }
@@ -54,7 +54,7 @@
                     <div class="col-12 product-image-thumbs">
                         @foreach (var car in Model.Arabalars)
                         {
-                            <div class="product-image-thumb"><img src="@car.Image" /></div>
+                            <div class="product-image-thumb"><img src="@car.Image"  /></div>
                         }
                         @foreach (var galeri in Model.Galeris)
                         {
@@ -128,7 +128,7 @@
                                 <div class="user-block">
                                     <img class="img-circle img-bordered-sm" src="@cmnt.Kullanıcıs.Image" alt="user image">
                                     <span class="username">
-                                        <a href="/Kullanıcılar/KullanıcıDetay/@cmnt.Kullanıcıid">@cmnt.Kullanıcıs.Ad @cmnt.Kullanıcıs.Soyad</a>
+                                        <a href="/Home/KullanıcıDetayları/@cmnt.Kullanıcıid">@cmnt.Kullanıcıs.Ad @cmnt.Kullanıcıs.Soyad</a>
 
                                     </span>
                                     <span class="description"> Yorumun Yapıldığı Tarih: @cmnt.Created_at.ToString("dd.MM.yyy")</span>

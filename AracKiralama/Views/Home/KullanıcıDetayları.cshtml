@@ -1,0 +1,115 @@
+﻿@model AracKiralama.Models.Sınıflar.HomePageDatas
+
+@foreach (var set in Model.Kullanıcıs2)
+{
+    ViewBag.Title = set.Ad;
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+
+<div class="page-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>@ViewBag.Ad Profil Sayfası</h1>
+                <span>Aşağıdaki Form ile bize mesaj gönderebilirsiniz</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<section class="content">
+
+    <div class="card-body">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title" style="margin-left:600px"> @ViewBag.Ad 'nın Profili</h3>
+            </div>
+            <div class="card-body">
+                <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4" style="width:auto">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6"></div>
+                        <div class="col-sm-12 col-md-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
+
+                                <tbody>
+                                    @foreach (var user in Model.Kullanıcıs2)
+                                    {
+                                        <tr>
+
+                                            <div class="center"><img src="@user.Image" height="350px" style="margin-left:500px;"></div>
+                                            <br />
+                                            <br />
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Kullanıcı Adı : </th>
+                                            <td>@user.Ad</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Kullanıcı Soyad : </th>
+                                            <td>@user.Soyad</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Kullanıcı Şehir : </th>
+                                            <td>@user.Sehir</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Status</th>
+                                            <td>
+                                                @if (@user.Status == true)
+                                                {
+                                                    <p>
+                                                        Aktif
+                                                    </p>
+                                                }
+                                                else
+                                                {
+                                                    <p>
+                                                        Pasif
+                                                    </p>
+
+                                                }
+                                            </td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Created_at</th>
+                                            <td>@user.Created_at.ToString("dd.MM.yyyy")</td>
+
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <th>Updated_at</th>
+                                            <td>@user.Updated_at.ToString("dd.MM.yyyy")</td>
+
+                                        </tr>
+                                      
+
+
+                                    }
+
+
+                                </tbody>
+
+                            </table>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
