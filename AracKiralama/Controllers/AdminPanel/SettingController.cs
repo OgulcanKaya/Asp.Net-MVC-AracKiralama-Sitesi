@@ -7,6 +7,7 @@ using AracKiralama.Models.Sınıflar;
 
 namespace AracKiralama.Controllers.AdminPanel
 {
+    [Authorize(Roles = "A")]
     public class SettingController : Controller
     {
         Context ctx = new Context();

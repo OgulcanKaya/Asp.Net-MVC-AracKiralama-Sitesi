@@ -8,6 +8,7 @@ using PagedList;
 using PagedList.Mvc;
 namespace AracKiralama.Controllers.AdminPanel
 {
+    [Authorize(Roles = "A")]
     public class KategoriController : Controller
     {
         // GET:Kategori

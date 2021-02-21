@@ -36,6 +36,7 @@ namespace AracKiralama.Models.Sınıflar
         [Column(TypeName = "Varchar")]
         [StringLength(50)]
         public string Image { get; set; }
+        public string Yetki { get; set; }
 
         public bool Status { get; set; }
         public DateTime Created_at { get; set; }

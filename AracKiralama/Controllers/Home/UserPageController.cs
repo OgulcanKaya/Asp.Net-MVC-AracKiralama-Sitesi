@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace AracKiralama.Controllers.Home
 {
+    [Authorize]
     public class UserPageController : Controller
     {
         // GET: UserPage
