@@ -67,14 +67,21 @@
 
                                         <li class="list-group-item">
 
-                                            <b>Kiralamalarım</b> <a class="float-right">@ViewBag.toplamKiralama</a>
+                                            <b>Kiralamalarım</b>
+                                            @if (@ViewBag.toplamKiralama == null)
+                                            {<a class="float-right">0</a>
+
+                                            }
+                                            <a class="float-right">
+                                                @ViewBag.toplamKiralama
+                                            </a>
 
                                         </li>
 
                                         <li class="list-group-item">
 
                                             <b>Yorumlarım</b> <a class="float-right">@ViewBag.toplamYorum</a>
-                                           
+
 
                                         </li>
 
@@ -200,7 +207,7 @@
                                     <div class="active tab-pane" id="kiralamalar">
 
                                         @Html.Action("kullanıcıKiralama", "UserPage")
-                               
+
 
                                     </div>
 

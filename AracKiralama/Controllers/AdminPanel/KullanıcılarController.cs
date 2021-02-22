@@ -45,6 +45,40 @@ namespace AracKiralama.Controllers.AdminPanel
             return View(user);
         }
 
+        public ActionResult KullanıcıGetir(int id)
+        {
+            var user = ctx.Kullanıcıs.Find(id);
+            var mail = User.Identity.Name.ToString();
+            var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
+            var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
+            var image = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Image).FirstOrDefault();
+            var KullanıcıId = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
+            ViewBag.KullanıcıId = KullanıcıId;
+            ViewBag.ad = ad;
+            ViewBag.soyad = soyad;
+            ViewBag.image = image;
+
+            return View("KullanıcıGetir",user);
+        }
+
+        [HttpPost]
+        public ActionResult KullanıcıGüncelle(Kullanıcı kullanıcı)
+        {
+            var user = ctx.Kullanıcıs.Find(kullanıcı.KullanıcıId);
+            user.Ad = kullanıcı.Ad;
+            user.Soyad = kullanıcı.Soyad;
+            user.Sehir = kullanıcı.Sehir;
+            user.Mail = kullanıcı.Mail;
+            user.Password = kullanıcı.Password;
+            user.Image = kullanıcı.Image;
+            user.Yetki = kullanıcı.Yetki;
+            user.Status = kullanıcı.Status;
+            user.Created_at = kullanıcı.Created_at;
+            user.Updated_at = DateTime.Parse(DateTime.Today.ToShortDateString());
+            ctx.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         public ActionResult KullanıcıSil(int id)
         {
             var user = ctx.Kullanıcıs.Find(id);

@@ -25,11 +25,15 @@ namespace AracKiralama.Controllers.Home
             var kullanıcıID = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
 
             var toplamKiralama = ctx.KiralamaHarekets.Where(x => x.Kullanıcıid == kullanıcıID).Count().ToString();
-            var toplamHarcama = ctx.KiralamaHarekets.Where(x => x.Kullanıcıid == kullanıcıID).Sum(y => y.Fiyat).ToString();
-            var toplamYorum = ctx.Commentss.Where(x => x.Kullanıcıid == kullanıcıID).Count().ToString();
 
-            ViewBag.toplamKiralama = toplamKiralama;
+
+            var toplamHarcama = ctx.KiralamaHarekets.Where(x => x.Kullanıcıid == kullanıcıID).Sum(y => y.Fiyat).ToString();
+
             ViewBag.toplamHarcama = toplamHarcama;
+
+
+            var toplamYorum = ctx.Commentss.Where(x => x.Kullanıcıid == kullanıcıID).Count().ToString();
+            ViewBag.toplamKiralama = toplamKiralama;
             ViewBag.toplamYorum = toplamYorum;
 
             return View(hmpg);
@@ -39,7 +43,7 @@ namespace AracKiralama.Controllers.Home
         {
             var mail = User.Identity.Name.ToString();
             var kullanıcıID = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.KullanıcıId).FirstOrDefault();
-            var kiralamalar = ctx.KiralamaHarekets.Where(x => x.Kullanıcıid == kullanıcıID).OrderByDescending(y=>y.KiralamaId).ToList();
+            var kiralamalar = ctx.KiralamaHarekets.Where(x => x.Kullanıcıid == kullanıcıID).OrderByDescending(y => y.KiralamaId).ToList();
             return PartialView(kiralamalar);
         }
 

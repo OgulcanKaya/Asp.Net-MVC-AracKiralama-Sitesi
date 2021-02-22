@@ -19,7 +19,7 @@ namespace AracKiralama.Controllers.Home
             hmpg.Settings = ctx.Settings.ToList();
             hmpg.SeciliArabalar = ctx.Arabalars.OrderByDescending(x => x.ArabaId).Take(3).ToList();
             hmpg.Arabalars = ctx.Arabalars.ToList();
-            hmpg.Comments = ctx.Commentss.ToList();
+            hmpg.Comments = ctx.Commentss.OrderByDescending(x => x.ıd).Take(6).ToList();
             var mail = User.Identity.Name.ToString();
             hmpg.Kullanıcıs = ctx.Kullanıcıs.Where(x => x.Mail == mail).ToList();
 

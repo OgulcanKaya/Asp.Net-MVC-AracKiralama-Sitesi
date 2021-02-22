@@ -15,7 +15,7 @@ namespace AracKiralama.Controllers.AdminPanel
         Context ctx = new Context();
         public ActionResult Kategori(int sayfa =1)
         {
-            var kategoriler = ctx.Kategoris.ToList().ToPagedList(sayfa,5);
+            var kategoriler = ctx.Kategoris.ToList().ToPagedList(sayfa,10);
             var mail = User.Identity.Name.ToString();
             var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
             var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();

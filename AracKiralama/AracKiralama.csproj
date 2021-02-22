@@ -3077,13 +3077,13 @@
     <Content Include="Views\Messages\Index.cshtml" />
     <Content Include="Views\Messages\MesajGetir.cshtml" />
     <Content Include="Views\Arabalar\KiralananArabalar.cshtml" />
-    <Content Include="Views\Home\Kirala.cshtml" />
     <Content Include="Views\Home\KiralamaDetay.cshtml" />
     <Content Include="Views\Home\SSS.cshtml" />
     <Content Include="Views\SSS\Index.cshtml" />
     <Content Include="Views\SSS\SSSekle.cshtml" />
     <Content Include="Views\SSS\SSSGetir.cshtml" />
     <Content Include="Views\Home\KullanıcıDetayları.cshtml" />
+    <Content Include="Views\Kullanıcılar\KullanıcıGetir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
