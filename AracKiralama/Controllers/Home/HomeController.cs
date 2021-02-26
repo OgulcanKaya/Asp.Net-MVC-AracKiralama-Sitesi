@@ -17,8 +17,8 @@ namespace AracKiralama.Controllers.Home
             HomePageDatas hmpg = new HomePageDatas();
             hmpg.Kategoris = ctx.Kategoris.ToList();
             hmpg.Settings = ctx.Settings.ToList();
-            hmpg.SeciliArabalar = ctx.Arabalars.OrderByDescending(x => x.ArabaId).Take(3).ToList();
-            hmpg.Arabalars = ctx.Arabalars.ToList();
+            hmpg.SeciliArabalar = ctx.Arabalars.Where(x => x.Status == true).OrderByDescending(x => x.ArabaId).Take(3).ToList();
+            hmpg.Arabalars = ctx.Arabalars.Where(x=>x.Status == true).ToList();
             hmpg.Comments = ctx.Commentss.OrderByDescending(x => x.ıd).Take(6).ToList();
             var mail = User.Identity.Name.ToString();
             hmpg.Kullanıcıs = ctx.Kullanıcıs.Where(x => x.Mail == mail).ToList();
@@ -66,7 +66,7 @@ namespace AracKiralama.Controllers.Home
             HomePageDatas hmpg = new HomePageDatas();
             hmpg.Kategoris = ctx.Kategoris.ToList();
             hmpg.Settings = ctx.Settings.ToList();
-            hmpg.Arabalars = ctx.Arabalars.ToList();
+            hmpg.Arabalars = ctx.Arabalars.Where(x => x.Status == true).ToList();
             if (!string.IsNullOrEmpty(ara))
             {
                 hmpg.Arabalars = ctx.Arabalars.Where(x => x.Title.Contains(ara)).ToList();
@@ -82,7 +82,7 @@ namespace AracKiralama.Controllers.Home
             HomePageDatas hmpg = new HomePageDatas();
             hmpg.Kategoris = ctx.Kategoris.ToList();
             hmpg.Settings = ctx.Settings.ToList();
-            hmpg.Arabalars = ctx.Arabalars.Where(x => x.Kategoriid == id).ToList();
+            hmpg.Arabalars = ctx.Arabalars.Where(x => x.Kategoriid == id && x.Status == true ).ToList();
             if (!string.IsNullOrEmpty(ara))
             {
                 hmpg.Arabalars = ctx.Arabalars.Where(x => x.Kategoriid == id && x.Title.Contains(ara)).ToList();
@@ -105,6 +105,7 @@ namespace AracKiralama.Controllers.Home
             hmpg.Galeris = ctx.Galeris.Where(x => x.Arabaid == id).ToList();
             var mail = User.Identity.Name.ToString();
             hmpg.Kullanıcıs = ctx.Kullanıcıs.Where(x => x.Mail == mail).ToList();
+           
 
             return View("AraçDetay", hmpg);
 
@@ -113,6 +114,7 @@ namespace AracKiralama.Controllers.Home
         [HttpGet]
         public PartialViewResult KiralamaYap()
         {
+           
             return PartialView("KiralamaYap");
 
         }
@@ -134,6 +136,8 @@ namespace AracKiralama.Controllers.Home
             ViewBag.id = kiralamaHareket.Arabaid;
             ViewBag.title = ctx.Arabalars.Where(x => x.ArabaId == id).Select(y => y.Title).FirstOrDefault();
             ViewBag.image = ctx.Arabalars.Where(x => x.ArabaId == id).Select(y => y.Image).FirstOrDefault();
+            ViewBag.kirada = ctx.Arabalars.Where(x => x.ArabaId == id).Select(y => y.Kirada).FirstOrDefault();
+
 
             return View("KiralamaDetay", kiralamaHareket);
 

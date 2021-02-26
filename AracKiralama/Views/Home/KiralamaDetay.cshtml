@@ -148,7 +148,20 @@
 
                         <div class="offset-sm-2 col-sm-10">
 
-                            <button type="submit" class="btn btn-success">Kirala</button>
+                            @if (ViewBag.kirada == true)
+                            {
+                                    <b>Araba Şuanda Kirada Olduğu İçin Kiralama Hizmeti Verilemektedir </b>
+                                    <br />
+                                    <br />
+
+                            }
+                            else
+                            {
+                                <button type="submit" class="btn btn-success">Kirala</button>
+
+                            }
+
+                            
                             <a href="/Home/AraçDetay/@ViewBag.id" class="filled-button" style="background-color:darkcyan">Geri Dön</a>
 
                         </div>

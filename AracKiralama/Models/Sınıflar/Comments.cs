@@ -13,7 +13,7 @@ namespace AracKiralama.Models.Sınıflar
         public int ıd { get; set; }
 
         [Column(TypeName = "Varchar")]
-        [StringLength(50)]
+        [StringLength(350)]
         public string Comment { get; set;}
 
         public int Rate { get; set; }
