@@ -16,7 +16,7 @@ namespace AracKiralama.Controllers.AdminPanel
         // GET: Kiralama
         public ActionResult Index()
         {
-            var kiralama = ctx.KiralamaHarekets.ToList();
+            var kiralama = ctx.KiralamaHarekets.OrderByDescending(x=>x.KiralamaId).ToList();
             var mail = User.Identity.Name.ToString();
             var ad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Ad).FirstOrDefault();
             var soyad = ctx.Kullanıcıs.Where(x => x.Mail == mail).Select(y => y.Soyad).FirstOrDefault();
